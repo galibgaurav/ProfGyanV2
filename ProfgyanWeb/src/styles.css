@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+
+.ProfTopAndBottomBorder
+{
+    padding-top: 1em;
+    border-top: 2px solid #eee;
+    border-bottom: 2px solid #eee;
+    text-align: center;
+}
+
+/* The container */
+.profcontainer {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.profcontainer input {
+    position: absolute !important;
+    opacity: 0 !important;
+    cursor: pointer !important;
+}
+
+/* Create a custom checkbox */
+.profcheckmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.profcontainer:hover input ~ .checkmark {
+    background-color: #ccc !important;
+}
+
+/* When the checkbox is checked, add a blue background */
+.profcontainer input:checked ~ .checkmark {
+    background-color: #2196F3 !important;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.profcheckmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.profcontainer input:checked ~ .checkmark:after {
+    display: block !important;
+}
+
+/* Style the checkmark/indicator */
+.profcontainer .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.profgyanlogo
+{
+    width: 25% !important;
+}

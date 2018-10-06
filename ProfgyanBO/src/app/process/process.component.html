@@ -1,0 +1,522 @@
+<div>
+    <app-bonavbar ></app-bonavbar> 
+</div> 
+
+  <div class="container">
+      <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="dashboard.html">Home</a>
+          </li>
+          <li class="breadcrumb-item active">Screening</li>
+        </ol>
+  <div class="text-center">
+    <!-- <div class="badge badge-primary ">Instructor Application Form </div> -->
+    <hr>
+    <h5 class="text-muted"> Instructor Screening Form</h5>
+  </div>
+  <hr>
+  <p>Form value: {{ trainerForm.status | json }}</p>
+    <div class="card">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="#first" data-toggle="tab">Personal Detail</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#second" data-toggle="tab">Education Detail</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#third" data-toggle="tab">Documents</a>
+        </li>
+      </ul>
+      <div class="tab-content card-body">
+
+
+        <div class="tab-pane active" id="first">
+          <form class="form-horizontal" novalidate (ngSubmit)="SavePersonalData()" [formGroup]="trainerForm">
+            <fieldset>
+
+              <div class="form-group row" [ngClass]="{'has-error': (trainerForm.get('firstName').touched || 
+                        trainerForm.get('firstName').dirty) &&
+                        !trainerForm.get('firstName').valid }">
+
+                <label for="firstNameId" class="col-sm-3 col-form-label">Full Name*</label>
+
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <input type="text" id="firstNameId" class="form-control" placeholder="First Name" formControlName="firstName" />
+                    <div class="help-block" *ngIf="(trainerForm.get('firstName').touched || 
+                             trainerForm.get('firstName').dirty) && 
+                             trainerForm.get('firstName').errors">
+                      <span *ngIf="trainerForm.get('firstName').errors.required">
+                        Please enter your first name.
+                      </span>
+                      <span *ngIf="trainerForm.get('firstName').errors.minlength">
+                        The first name must be longer than 3 characters.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group row" [ngClass]="{'has-error': (trainerForm.get('lastName').touched || 
+                      trainerForm.get('lastName').dirty) &&
+                      !trainerForm.get('lastName').valid }">
+                <div class="col-sm-6 col-md-3">
+                </div>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <input type="text" id='lastNameId' class="form-control" placeholder="Last Name" value="" formControlName="lastName" />
+                    <div class="help-block" *ngIf="(trainerForm.get('lastName').touched || 
+                          trainerForm.get('lastName').dirty) && 
+                          trainerForm.get('lastName').errors">
+                      <span *ngIf="trainerForm.get('lastName').errors.required">
+                        Please enter your last name.
+                      </span>
+                      <span *ngIf="trainerForm.get('lastName').errors.minlength">
+                        The last name must be longer than 3 characters.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group row" [ngClass]="{'has-error': (trainerForm.get('email').touched || 
+                      trainerForm.get('email').dirty) &&
+                      !trainerForm.get('email').valid }">
+                <label for="emailId" class="col-sm-3 col-form-label">Email*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="material-icons md-18 text-muted">mail</i>
+                    </span>
+                    <input type="text" id="emailId" class="form-control" placeholder="Email Address" value="" formControlName="email" />
+                    <div class="help-block" *ngIf="(trainerForm.get('email').touched || 
+                          trainerForm.get('email').dirty) && 
+                          trainerForm.get('email').errors">
+                      <span *ngIf="trainerForm.get('email').errors.required">
+                        Please enter your email address.
+                      </span>
+                      <span *ngIf="trainerForm.get('email').errors.pattern">
+                        Please email enter in correct pattern.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row" [ngClass]="{'has-error': (trainerForm.get('phone').touched || 
+                      trainerForm.get('phone').dirty) &&
+                      !trainerForm.get('phone').valid }">
+                <label for="phoneId" class="col-sm-3 col-form-label">Phone*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="material-icons md-18 text-muted">phone</i>
+                    </span>
+                    <input type="text" id="phoneId" class="form-control" placeholder="Mobile Number" value="" formControlName="phone" />
+                    <span class="help-block" *ngIf="(trainerForm.get('phone').touched || 
+                          trainerForm.get('phone').dirty) && 
+                          trainerForm.get('phone').errors">
+                      <span class="help-block" *ngIf="trainerForm.get('phone').errors">
+                        <span *ngIf="trainerForm.get('phone').errors.required">
+                          Please enter your mobile number.
+                        </span>
+                        <span *ngIf="trainerForm.get('phone').errors.minlength">
+                          Mobile number name must be equal to 10 characters.
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="dobId" class="col-sm-3 col-form-label">DOB*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <input class="datepicker form-control" id="dobId" type="date"  formControlName="dob" />
+                    <!-- <input class="datepicker form-control" id="dobId" type="date" value="trainerForm.get('dob')" formControlName="dob" /> -->
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row" [ngClass]="{'has-error': (trainerForm.get('address').touched || 
+                      trainerForm.get('address').dirty) &&
+                      !trainerForm.get('address').valid }">
+                <label for="addressId" class="col-sm-3 col-form-label">Address*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <textarea id="addressId" class="form-control" placeholder="Your location" rows="3" formControlName="address"></textarea>
+                    <span class="help-block" *ngIf="(trainerForm.get('address').touched || 
+                          trainerForm.get('address').dirty) && 
+                          trainerForm.get('address').errors">
+                      <span class="help-block" *ngIf="trainerForm.get('address').errors">
+                        <span *ngIf="trainerForm.get('address').errors.maxlength">
+                          The address name must not be longer than 300 characters.
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row" [ngClass]="{'has-error': (trainerForm.get('state').touched || 
+              trainerForm.get('state').dirty) &&
+                !trainerForm.get('state').valid }">
+                <label for="stateId" class="col-sm-3 col-form-label">State*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <!-- <span class="input-group-addon">
+                      <i class="material-icons md-18 text-muted">school</i>
+                    </span> -->
+                    <select id="stateId" class="form-control" formControlName="state">
+                      <option>Andra Pradesh
+                        <option>Arunachal Pradesh
+                        <option>Assam
+                        <option>Bihar
+                        <option>Chhattisgarh
+                        <option>Goa</option>
+                        <option>Gujarat</option>
+                        <option>Haryana</option>
+                        <option>Himachal Pradesh</option>
+                        <option>Jammu and Kashmir</option>
+                        <option>Jharkhand</option>
+                        <option>Karnataka</option>
+                        <option>Kerala</option>
+                        <option>Madya Pradesh</option>
+                        <option>Maharashtra</option>
+                        <option>Manipur</option>
+                        <option>Meghalaya</option>
+                        <option>Mizoram</option>
+                        <option>Nagaland</option>
+                        <option>Orissa</option>
+                        <option>Punjab</option>
+                        <option>Rajasthan</option>
+                        <option>Sikkim</option>
+                        <option>Tamil Nadu</option>
+                        <option>Tripura</option>
+                        <option>Uttaranchal</option>
+                        <option>Uttar Pradesh</option>
+                        <option>West Bengal</option>
+                        <option>Andaman and Nicobar Islands</option>
+                        <option>Chandigarh</option>
+                        <option>Dadar and Nagar Haveli</option>
+                        <option>Daman and Diu</option>
+                        <option>Delhi</option>
+                        <option>Lakshadeep</option>
+                        <option>Pondicherry</option>
+                        
+                    </select>
+                    <span class="help-block" *ngIf="(trainerForm.get('state').touched || 
+                    trainerForm.get('state').dirty) && 
+                    trainerForm.get('state').errors">
+                      <span class="help-block" *ngIf="trainerForm.get('state').errors">
+                        <span *ngIf="trainerForm.get('state').errors.required">
+                          Please enter state name.
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row" [ngClass]="{'has-error': (trainerForm.get('City').touched || 
+                      trainerForm.get('City').dirty) &&
+                      !trainerForm.get('City').valid }">
+                <label for="CityId" class="col-sm-3 col-form-label">City*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <!-- <span class="input-group-addon">
+                      <i class="material-icons md-18 text-muted">phone</i>
+                    </span> -->
+                    <input type="text" id="CityId" class="form-control" placeholder="City Name" value="" formControlName="City" />
+                    <span class="help-block" *ngIf="(trainerForm.get('City').touched || 
+                          trainerForm.get('City').dirty) && 
+                          trainerForm.get('City').errors">
+                      <span class="help-block" *ngIf="trainerForm.get('City').errors">
+                        <span *ngIf="trainerForm.get('City').errors.required">
+                          Please enter your city name.
+                        </span>
+                        <span *ngIf="trainerForm.get('City').errors.minlength">
+                          City name must be lesser than 50 characters.
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="form-group row" [ngClass]="{'has-error': (trainerForm.get('PINCode').touched || 
+                      trainerForm.get('PINCode').dirty) &&
+                      !trainerForm.get('PINCode').valid }">
+                <label for="PINCodeId" class="col-sm-3 col-form-label">PINCode*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <!-- <span class="input-group-addon">
+                      <i class="material-icons md-18 text-muted">phone</i>
+                    </span> -->
+                    <input type="text" id="PINCodeId" class="form-control" value="" formControlName="PINCode" />
+                    <span class="help-block" *ngIf="(trainerForm.get('PINCode').touched || 
+                          trainerForm.get('PINCode').dirty) && 
+                          trainerForm.get('PINCode').errors">
+                      <span class="help-block" *ngIf="trainerForm.get('PINCode').errors">
+                        <span *ngIf="trainerForm.get('PINCode').errors.required">
+                          Please enter your city PINCode.
+                        </span>
+                        <span *ngIf="trainerForm.get('PINCode').errors.minlength">
+                          PINCode must be lesser than 10 characters.
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-sm-8 offset-sm-3">
+                  <div class="media">
+                    <div class="media-left">
+                      <!-- <a href="#" type="submit" class="btn btn-success">Save Changes</a> -->
+                      <!-- <button class="btn btn-success" type="submit" [disabled]="trainerForm.valid || trainerForm.prestine"> Save Changes</button> -->
+                      <button class="btn btn-success" type="submit" [disabled]="trainerForm.invalid || trainerForm.prestine"> Save</button>
+                      
+                      <button class="btn btn-primary "  style="margin-left:5px" type="reset"> Reset</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+        <div class="tab-pane" id="second">
+          <form class="form-horizontal" novalidate (ngSubmit)="saveEdu()" [formGroup]="trainerEduForm">
+            <fieldset>
+              <div class="form-group row" [ngClass]="{'has-error': (trainerEduForm.get('highestQualification').touched || 
+              trainerEduForm.get('highestQualification').dirty) &&
+                !trainerEduForm.get('highestQualification').valid }">
+                <label for="highestQualificationId" class="col-sm-3 col-form-label">Highest Qualification*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="material-icons md-18 text-muted">school</i>
+                    </span>
+                    <select id="highestQualificationId" class="form-control" formControlName="highestQualification">
+                      <option>B.tech</option>
+                      <option>M.tech</option>
+                      <option>B.Sc</option>
+                      <option>B.A</option>
+                      <option>B.Com</option>
+                    </select>
+                    <span class="help-block" *ngIf="(trainerEduForm.get('highestQualification').touched || 
+                    trainerEduForm.get('highestQualification').dirty) && 
+                    trainerEduForm.get('highestQualification').errors">
+                      <span class="help-block" *ngIf="trainerEduForm.get('highestQualification').errors">
+                        <span *ngIf="trainerEduForm.get('highestQualification').errors.required">
+                          Please enter highest qualification.
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row" [ngClass]="{'has-error': (trainerEduForm.get('department').touched || 
+              trainerEduForm.get('department').dirty) &&
+                      !trainerEduForm.get('department').valid }">
+                <label for="departmentId" class="col-sm-3 col-form-label">Department*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="material-icons md-18 text-muted">subject</i>
+                    </span>
+                    <input type="text" id="departmentId" class="form-control" placeholder="Stream of qualification" formControlName="department"
+                    />
+                    <span class="help-block" *ngIf="(trainerEduForm.get('department').touched || 
+                    trainerEduForm.get('department').dirty) && 
+                    trainerEduForm.get('department').errors">
+                      <span class="help-block" *ngIf="trainerEduForm.get('department').errors">
+                        <span *ngIf="trainerEduForm.get('department').errors.maxlength">
+                          The department name must not be longer than 30 characters.
+                        </span>
+                      </span>
+                    </span>
+
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="academicYearId" class="col-sm-3 col-form-label">Academic Year</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+
+                    <input class="datepicker form-control" id="academicYearId" type="date" value="01/28/2016" formControlName="academicYear"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row" [ngClass]="{'has-error': (trainerEduForm.get('industrialExp').touched || 
+              trainerEduForm.get('industrialExp').dirty) &&
+                      !trainerEduForm.get('industrialExp').valid }">
+                <label for="industrialExpId" class="col-sm-3 col-form-label">Industrial Experience</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+
+                    <select id="industrialExpId" class="form-control" formControlName="industrialExp">
+                      <option>No Experience</option>
+                      <option>Less than 1 year</option>
+                      <option>Less than 2 years</option>
+                      <option>Less than 4 years</option>
+                      <option>More than 5 years</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row" [ngClass]="{'has-error': (trainerEduForm.get('teachingExp').touched || 
+              trainerEduForm.get('teachingExp').dirty) &&
+                      !trainerEduForm.get('teachingExp').valid }">
+                <label for="teachingExpId" class="col-sm-3 col-form-label">Teaching Experience</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <select id="teachingExpId" class="form-control" formControlName="teachingExp">
+                      <option>No Experience</option>
+                      <option>Less than 1 year</option>
+                      <option>Less than 2 years</option>
+                      <option>Less than 4 years</option>
+                      <option>More than 5 years</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row" [ngClass]="{'has-error': (trainerEduForm.get('skillSet').touched || 
+              trainerEduForm.get('skillSet').dirty) &&
+                      !trainerEduForm.get('skillSet').valid }">
+                <label for="skillSetId" class="col-sm-3 col-form-label">Skill Set</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <textarea class="form-control" id="skillSetId" placeholder="Skill A;Skill B;Skill C;..;" rows="3" formControlName="skillSet"></textarea>
+                    <span class="help-block" *ngIf="(trainerEduForm.get('skillSet').touched || 
+                    trainerEduForm.get('skillSet').dirty) && 
+                    trainerEduForm.get('skillSet').errors">
+                      <span class="help-block" *ngIf="trainerEduForm.get('skillSet').errors">
+                        <span *ngIf="trainerEduForm.get('skillSet').errors.maxlength">
+                          The Skill Set name must not be longer than 100 characters.
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row" [ngClass]="{'has-error': (trainerEduForm.get('socialMediaLink').touched || 
+              trainerEduForm.get('socialMediaLink').dirty) &&
+                      !trainerEduForm.get('socialMediaLink').valid }">
+                <label for="socialMediaLinkId" class="col-sm-3 col-form-label">Social media link</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="material-icons md-18 text-muted">group</i>
+                    </span>
+                    <input type="text" id="socialMediaLinkId" class="form-control" placeholder="" formControlName="socialMediaLink" />
+                    <span class="help-block" *ngIf="(trainerEduForm.get('socialMediaLink').touched || 
+                    trainerEduForm.get('socialMediaLink').dirty) && 
+                    trainerEduForm.get('socialMediaLink').errors">
+                      <span class="help-block" *ngIf="trainerEduForm.get('socialMediaLink').errors">
+                        <span *ngIf="trainerEduForm.get('socialMediaLink').errors.maxlength">
+                          The Social dedia link name must not be longer than 300 characters.
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="col-sm-8 offset-sm-3">
+                  <div class="media">
+                    <div class="media-left">
+                      <!-- <a href="#" type="submit" class="btn btn-success">Save Changes</a> -->
+                      <!-- <button class="btn btn-success" type="submit" [disabled]="trainerForm.valid || trainerForm.prestine"> Save Changes</button> -->
+                      <button class="btn btn-success" type="submit" [disabled]="trainerEduForm.invalid"> Save</button>
+                      <button class="btn btn-primary" style="margin-left:5px" type="reset"> Reset</button>
+                    </div>
+
+
+                  </div>
+                </div>
+              </div>
+              
+            </fieldset>
+          </form>
+        </div>
+        <div class="tab-pane" id="third">
+          <form class="form-horizontal" novalidate (ngSubmit)="saveDoc()" [formGroup]="trainerDocForm">
+            <fieldset>
+              <div class="form-group row">
+                <label for="resumeId" class="col-sm-3 col-form-label">Resume*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="media">
+                    <!-- <div class="media-left">
+                          <div class="icon-block rounded">
+                            <i class="material-icons text-muted-light md-36">photo</i>
+                          </div>
+                        </div> -->
+
+                    <label class="custom-file m-0">
+                      <input type="file" (change)="onResumeFileChange($event)" formControlName="resume" />
+                      <span class="custom-file-control"></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="avatarId" class="col-sm-3 col-form-label">Avatar*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="media">
+                    <div class="media-left">
+                      <div class="icon-block rounded">
+                        <i class="material-icons text-muted-light md-36">photo</i>
+                      </div>
+                    </div>
+                    <div class="media-body media-middle">
+                      <label class="custom-file m-0">
+                        <input type="file" (change)="onAvatarFileChange($event)" formControlName="avatar" />
+                        <span class="custom-file-control"></span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="form-group row">
+                <label for="resumeId" class="col-sm-3 col-form-label">Resume*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="material-icons md-18 text-muted">ballot</i>
+                    </span>
+                    <input type="file" (change)="onResumeFileChange($event)" class="form-control" formControlName="resume" />
+                  </div>
+                </div>
+              </div> -->
+              <!-- <div class="form-group row">
+                <label for="avatarId" class="col-sm-3 col-form-label">Avatar*</label>
+                <div class="col-sm-6 col-md-5">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      <i class="material-icons md-18 text-muted">face</i>
+                    </span>
+                    <input type="file" (change)="onAvatarFileChange($event)" class="form-control" formControlName="avatar" />
+                  </div>
+                </div>
+              </div> -->
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+  <div class="media-body media-middle pl-1">
+    <label class="custom-control custom-checkbox m-0">
+      <input type="checkbox" class="custom-control-input" checked>
+      <span class="custom-control-indicator"></span>
+      <span class="custom-control-description">Subscribe to Newsletter</span>
+    </label>
+  </div>
+  <hr>
+</div>

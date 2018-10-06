@@ -1,0 +1,70 @@
+<div class="modal-body">
+  <div class="loginf_module">
+    <div class="module form-module">
+      <div class="form">
+        <h3>Create an account</h3>
+        <form novalidate (ngSubmit)="saveSignUp()" [formGroup]="signupForm">
+          <div [ngClass]="{'has-error': displayMessage.FirstName}">
+            <input type="text" formControlName="FirstName" placeholder="First Name">
+            <span *ngIf="displayMessage.FirstName" style="color:red">
+              {{displayMessage.FirstName}}
+            </span>
+          </div>
+
+          <div [ngClass]="{'has-error': displayMessage.LastName}">
+            <input type="text" formControlName="LastName" placeholder="Last Name">
+            <span *ngIf="displayMessage.LastName" style="color: red">
+              {{displayMessage.LastName}}
+            </span>
+          </div>
+
+          <div [ngClass]="{'has-error': displayMessage.UserName}">
+            <input type="text" formControlName="UserName" placeholder="User Name">
+            <span *ngIf="displayMessage.UserName" style="color: red">
+              {{displayMessage.UserName}}
+            </span>
+          </div>
+
+          <div [ngClass]="{'has-error': displayMessage.Password}">
+            <input type="password" formControlName="Password" placeholder="Password">
+            <span *ngIf="displayMessage.Password" style="color: red">
+              {{displayMessage.Password}}
+            </span>
+          </div>
+
+          <div [ngClass]="{'has-error': displayMessage.ConfirmPassword}">
+              <input type="password" formControlName="ConfirmPassword" placeholder="Confirm Password">
+              <span *ngIf="displayMessage.ConfirmPassword" style="color: red">
+                {{displayMessage.ConfirmPassword}}
+              </span>
+            </div>
+
+          <div [ngClass]="{'has-error': displayMessage.Email}">
+            <input type="email" formControlName="Email" placeholder="Email">
+            <span *ngIf="displayMessage.Email" style="color: red">
+              {{displayMessage.Email}}
+            </span>
+          </div>
+
+          <div [ngClass]="{'has-error': displayMessage.PhoneNumber}">
+            <input type="text" formControlName="PhoneNumber" placeholder="Mobile Number">
+            <span *ngIf="displayMessage.PhoneNumber" style="color:red">
+              {{displayMessage.PhoneNumber}}
+            </span>
+          </div>
+
+
+          <label>
+            <input type="radio" formControlName="Become" value="Trainer"> &nbsp;A Trainer
+          </label>
+          <br/>
+          <label>
+            <input type="radio" formControlName="Become" value="Trainee">&nbsp; A Trainee
+          </label>
+          <br />
+          <input type="submit" value="Create Account" [disabled]="signupForm.invalid">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

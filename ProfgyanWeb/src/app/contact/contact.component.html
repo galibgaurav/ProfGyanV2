@@ -1,0 +1,122 @@
+<!-- banner -->
+<div class="innerf-banner">
+</div>
+<!--//banner -->
+<!-- Page details -->
+<div class="services-agile-breadcrumb">
+	<div class="inner_breadcrumb">
+		<ul class="short_ls">
+			<li>
+				<a [routerLink]="['/']" routerLinkActive="active">Home</a>
+				<span>| |</span>
+			</li>
+			<li>Contact</li>
+		</ul>
+	</div>
+</div>
+<!-- //Page details -->
+<!-- mail -->
+<div class="mail">
+	<div class="container">
+		<h3 class="tittlef-agileits-w3layouts">Contact Us</h3>
+		<div class="shopf-sear-headinfo_mail_grids">
+			<div class="col-md-7 contctf_mail_grid_right">
+				<h3 class="sub-w3ls-headf">Please fill this form to contact with us.</h3>
+				<form novalidate (ngSubmit)="saveContact()" [formGroup]="contactForm">
+					<div class="inputf_left">
+						<div [ngClass]="{'has-error': displayMessage.Name }">
+							<input type="text" formControlName="Name" placeholder="Full Name">
+							<span *ngIf="displayMessage.Name" style="color:red">
+								{{displayMessage.Name}}
+							</span>
+						</div>
+					</div>
+					<div class="inputf_right">
+						<div [ngClass]="{'has-error': displayMessage.Email}">
+							<input type="email" formControlName="Email" placeholder="Email">
+							<span *ngIf="displayMessage.Email" style="color:red">
+								{{displayMessage.Email}}
+							</span>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+					<div class="inputf_left">
+						<div [ngClass]="{'has-error': displayMessage.Mobile}">
+							<input type="text" formControlName="Mobile" placeholder="Mobile Number">
+							<span *ngIf="displayMessage.Mobile" style="color:red">
+								{{displayMessage.Mobile}}
+							</span>
+						</div>
+					</div>
+					<div class="inputf_right">
+						<div [ngClass]="{'has-error': displayMessage.Subject}">
+							<input type="text" formControlName="Subject" placeholder="Subject">
+							<span *ngIf="displayMessage.Subject" style="color:red">
+								{{displayMessage.Subject}}
+							</span>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+					<div class="inputf">
+						<div [ngClass]="{'has-error': displayMessage.Message}">
+							<textarea formControlName="Message" placeholder="Message..." ></textarea>
+							<span *ngIf="displayMessage.Message" style="color:red">
+								{{displayMessage.Message}}
+							</span>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+					<input type="submit" value="Submit" [disabled]="contactForm.invalid">
+					<input type="reset" value="Clear">
+				</form>		
+			</div>
+			<div class="col-md-5 contactf-left">
+				<h3 class="sub-w3ls-headf">Contact Info</h3>
+				<div class="visit">
+					<div class="col-md-2 col-sm-2 col-xs-2 contact-icon-sidef">
+						<span class="fa fa-home" aria-hidden="true"></span>
+					</div>
+					<div class="col-md-10 col-sm-10 col-xs-10 contact-text-shopf-sear-headinf0">
+						<h4>Visit us</h4>
+						<p>Cologne, Ehrenfeld Gutenbergstr. 50823 Cologne, Germany</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="contactf-mail">
+					<div class="col-md-2 col-sm-2 col-xs-2 contact-icon-sidef">
+						<span class="fa fa-envelope" aria-hidden="true"></span>
+					</div>
+					<div class="col-md-10 col-sm-10 col-xs-10 contact-text-shopf-sear-headinf0">
+						<h4>Mail us</h4>
+						<p>
+							<a href="mailto:profgyanonline@gmail.com">profgyanonline@gmail.com</a>
+						</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="call">
+					<div class="col-md-2 col-sm-2 col-xs-2 contact-icon-sidef">
+						<span class="fa fa-mobile" aria-hidden="true"></span>
+					</div>
+					<div class="col-md-10 col-sm-10 col-xs-10 contact-text-shopf-sear-headinf0">
+						<h4>Call us</h4>
+						<p> +919886787209</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="visit">
+					<div class="col-md-2 col-sm-2 col-xs-2 contact-icon-sidef">
+						<span class="fa fa-clock-o" aria-hidden="true"></span>
+					</div>
+					<div class="col-md-10 col-sm-10 col-xs-10 contact-text-shopf-sear-headinf0">
+						<h4>Work hours</h4>
+						<p>Mon-Sat 09:00 AM - 05:00PM</p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!-- //mail -->
