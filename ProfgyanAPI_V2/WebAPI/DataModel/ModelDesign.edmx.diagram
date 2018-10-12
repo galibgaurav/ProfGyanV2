@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a55b96ef021a48a5bdd700754f081a68" Name="Diagram1" >
+        <EntityTypeShape EntityType="ModelDesign.Appointment" Width="1.5" PointX="8.25" PointY="5.875" />
+        <EntityTypeShape EntityType="ModelDesign.Attendance" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ModelDesign.Bid" Width="1.5" PointX="5.25" PointY="6.75" />
+        <EntityTypeShape EntityType="ModelDesign.BookMark" Width="1.5" PointX="2.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ModelDesign.Chat" Width="1.5" PointX="10.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ModelDesign.CommonDetail" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="ModelDesign.ContactUs" Width="1.5" PointX="4.75" PointY="10.75" />
+        <EntityTypeShape EntityType="ModelDesign.Course" Width="1.5" PointX="9.75" PointY="1" />
+        <EntityTypeShape EntityType="ModelDesign.Document" Width="1.5" PointX="12.75" PointY="4.625" />
+        <EntityTypeShape EntityType="ModelDesign.Enrollment" Width="1.5" PointX="12" PointY="1" />
+        <EntityTypeShape EntityType="ModelDesign.Feedback" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ModelDesign.PaymentMode" Width="1.5" PointX="2.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ModelDesign.Rating" Width="1.5" PointX="10.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ModelDesign.Role" Width="1.5" PointX="7.75" PointY="11.5" />
+        <EntityTypeShape EntityType="ModelDesign.Session" Width="1.5" PointX="4.75" PointY="13.75" />
+        <EntityTypeShape EntityType="ModelDesign.SocialMedia" Width="1.5" PointX="12.25" PointY="11.75" />
+        <EntityTypeShape EntityType="ModelDesign.Status" Width="1.5" PointX="12.75" PointY="7.75" />
+        <EntityTypeShape EntityType="ModelDesign.Subscription" Width="1.5" PointX="14.125" PointY="1" />
+        <EntityTypeShape EntityType="ModelDesign.sysdiagram" Width="1.5" PointX="14.75" PointY="4.625" />
+        <EntityTypeShape EntityType="ModelDesign.Trainee" Width="1.5" PointX="3" PointY="6.125" />
+        <EntityTypeShape EntityType="ModelDesign.TrainerDetail" Width="1.5" PointX="3.25" PointY="2.125" />
+        <EntityTypeShape EntityType="ModelDesign.Trainer" Width="1.5" PointX="1" PointY="0.5" />
+        <EntityTypeShape EntityType="ModelDesign.TrainingType" Width="1.5" PointX="14.75" PointY="6.75" />
+        <EntityTypeShape EntityType="ModelDesign.User" Width="1.5" PointX="10" PointY="10.125" />
+        <EntityTypeShape EntityType="ModelDesign.UserClaim" Width="1.5" PointX="12.25" PointY="9.5" />
+        <EntityTypeShape EntityType="ModelDesign.UserLogin" Width="1.5" PointX="12.25" PointY="13.875" />
+        <EntityTypeShape EntityType="ModelDesign.ValidationPasscode" Width="1.5" PointX="6.625" PointY="13.75" />
+        <AssociationConnector Association="ModelDesign.FK_dbo_Appointment_dbo_Trainee_TraineeID" />
+        <AssociationConnector Association="ModelDesign.FK_dbo_Appointment_dbo_Trainers_TrainerId" />
+        <AssociationConnector Association="ModelDesign.FK_dbo_Bid_dbo_Trainee_Trainee_TraineeID" />
+        <AssociationConnector Association="ModelDesign.FK_dbo_Bid_dbo_Trainers_TrainerId" />
+        <AssociationConnector Association="ModelDesign.FK_dbo_Trainee_dbo_CommonDetails_CommonDetailID" />
+        <AssociationConnector Association="ModelDesign.FK_dbo_Trainers_dbo_CommonDetails_CommonDetailID" />
+        <AssociationConnector Association="ModelDesign.FK_dbo_Enrollment_dbo_Course_CourseID" />
+        <AssociationConnector Association="ModelDesign.FK_dbo_TrainerDetails_dbo_Trainers_TrainerId" />
+        <AssociationConnector Association="ModelDesign.FK_dbo_UserLogin_dbo_User_UserId" />
+        <AssociationConnector Association="ModelDesign.UserRole" />
+        <AssociationConnector Association="ModelDesign.UserSocialMedia" />
+        <AssociationConnector Association="ModelDesign.UserUserClaim" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
