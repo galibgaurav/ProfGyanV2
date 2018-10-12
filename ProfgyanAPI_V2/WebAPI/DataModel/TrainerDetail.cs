@@ -21,7 +21,6 @@ namespace DataModel
         public string TeachingExperience { get; set; }
         public string Rewards { get; set; }
         public string TeachingReason { get; set; }
-        public string SocialMediaId { get; set; }
         public string TrainerId { get; set; }
     
         public virtual Trainer Trainer { get; set; }

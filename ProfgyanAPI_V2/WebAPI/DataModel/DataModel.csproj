@@ -75,6 +75,16 @@
     <Compile Include="Course.cs">
       <DependentUpon>ModelDesign.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Document.cs">
       <DependentUpon>ModelDesign.tt</DependentUpon>
     </Compile>
@@ -163,11 +173,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
+      <DependentUpon>ModelDesign.edmx</DependentUpon>
+    </Content>
+    <Content Include="DataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataModel.cs</LastGenOutput>
+      <DependentUpon>ModelDesign.edmx</DependentUpon>
+    </Content>
     <Content Include="ModelDesign.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelDesign.Context.cs</LastGenOutput>
       <DependentUpon>ModelDesign.edmx</DependentUpon>
     </Content>
+    <Content Include="ModelDesign.edmx.sql" />
     <Content Include="ModelDesign.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ModelDesign.cs</LastGenOutput>

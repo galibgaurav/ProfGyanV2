@@ -4,532 +4,525 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ModelDesign.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Appointment">
-          <Key>
-            <PropertyRef Name="AppointmentId" />
-          </Key>
-          <Property Name="AppointmentId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
-          <Property Name="Message" Type="nvarchar" MaxLength="300" />
-          <Property Name="TraineeID" Type="nvarchar" MaxLength="128" />
-          <Property Name="TrainerId" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="Attendance">
-          <Key>
-            <PropertyRef Name="AttendanceId" />
-          </Key>
-          <Property Name="AttendanceId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="SessionId" Type="nvarchar" MaxLength="128" />
-          <Property Name="TraineeId" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="Bid">
-          <Key>
-            <PropertyRef Name="BidId" />
-          </Key>
-          <Property Name="BidId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="FixedRate" Type="bit" Nullable="false" />
-          <Property Name="FinalBid" Type="bit" Nullable="false" />
-          <Property Name="CourseId" Type="nvarchar(max)" />
-          <Property Name="TrainerId" Type="nvarchar" MaxLength="128" />
-          <Property Name="Trainee_TraineeID" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="BookMarks">
-          <Key>
-            <PropertyRef Name="BookmarkId" />
-          </Key>
-          <Property Name="BookmarkId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="CourseId" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="Chat">
-          <Key>
-            <PropertyRef Name="ChatID" />
-          </Key>
-          <Property Name="ChatID" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Comments" Type="nvarchar" MaxLength="300" />
-        </EntityType>
-        <EntityType Name="CommonDetails">
-          <Key>
-            <PropertyRef Name="ID" />
-          </Key>
-          <Property Name="ID" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
-          <Property Name="state" Type="nvarchar" MaxLength="50" />
-          <Property Name="City" Type="nvarchar" MaxLength="50" />
-          <Property Name="PINCode" Type="nvarchar" MaxLength="50" />
-          <Property Name="AcademicYear" Type="datetime" />
-          <Property Name="DOB" Type="datetime" Nullable="false" />
-          <Property Name="HighestQualification" Type="nvarchar" MaxLength="50" />
-          <Property Name="Department" Type="nvarchar" MaxLength="50" />
-          <Property Name="Grade" Type="nvarchar" MaxLength="50" />
-          <Property Name="Photo" Type="image" />
-        </EntityType>
-        <EntityType Name="ContactUs">
-          <Key>
-            <PropertyRef Name="ContactusId" />
-          </Key>
-          <Property Name="ContactusId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Name" Type="nvarchar(max)" />
-          <Property Name="Email" Type="nvarchar(max)" />
-          <Property Name="Mobile" Type="nvarchar(max)" />
-          <Property Name="Message" Type="nvarchar(max)" />
-          <Property Name="Subject" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="Course">
-          <Key>
-            <PropertyRef Name="CourseId" />
-          </Key>
-          <Property Name="CourseId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="CourseName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Description" Type="nvarchar(max)" />
-          <Property Name="Logo" Type="image" />
-          <Property Name="StatusId" Type="nvarchar" MaxLength="128" />
-          <Property Name="URL" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="Documents">
-          <Key>
-            <PropertyRef Name="DocumentId" />
-          </Key>
-          <Property Name="DocumentId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="FileName" Type="nvarchar" MaxLength="50" />
-          <Property Name="FileType" Type="nvarchar" MaxLength="50" />
-          <Property Name="UserIdentity" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Enrollment">
-          <Key>
-            <PropertyRef Name="EnrollmentId" />
-          </Key>
-          <Property Name="EnrollmentId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="TrainerId" Type="nvarchar" MaxLength="128" />
-          <Property Name="DateEnrolled" Type="datetime" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
-          <Property Name="ModifiedDateTime" Type="datetime" />
-          <Property Name="CourseID" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="Feedback">
-          <Key>
-            <PropertyRef Name="FeedbackId" />
-          </Key>
-          <Property Name="FeedbackId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Comments" Type="nvarchar(max)" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="PaymentModes">
-          <Key>
-            <PropertyRef Name="ModeId" />
-          </Key>
-          <Property Name="ModeId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Mode" Type="nvarchar" MaxLength="20" />
-          <Property Name="StatusId" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="Rating">
-          <Key>
-            <PropertyRef Name="RatingId" />
-          </Key>
-          <Property Name="RatingId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="StarsCount" Type="int" />
-        </EntityType>
-        <EntityType Name="Role">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
-        </EntityType>
-        <EntityType Name="Session">
-          <Key>
-            <PropertyRef Name="SessionId" />
-          </Key>
-          <Property Name="SessionId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Timing" Type="datetime" />
-          <Property Name="CourseId" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="SocialMedia">
-          <Key>
-            <PropertyRef Name="SocialMediaId" />
-          </Key>
-          <Property Name="SocialMediaId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Name" Type="nvarchar" MaxLength="50" />
-          <Property Name="Link" Type="nvarchar" MaxLength="100" />
-          <Property Name="TrDetailId" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="Status">
-          <Key>
-            <PropertyRef Name="StatusId" />
-          </Key>
-          <Property Name="StatusId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="StatusName" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Subscription">
-          <Key>
-            <PropertyRef Name="SubscriptionId" />
-          </Key>
-          <Property Name="SubscriptionId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="CourseId" Type="nvarchar" MaxLength="128" />
-          <Property Name="Comments" Type="nchar" MaxLength="300" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
-        <EntityType Name="Trainee">
-          <Key>
-            <PropertyRef Name="TraineeID" />
-          </Key>
-          <Property Name="TraineeID" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="UserID" Type="nvarchar" MaxLength="128" />
-          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
-          <Property Name="AreaOfIntrest" Type="nvarchar(max)" />
-          <Property Name="StatusId" Type="nvarchar" MaxLength="50" />
-          <Property Name="CreatedDate" Type="datetime" />
-          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
-          <Property Name="ModifiedBy" Type="nvarchar" MaxLength="50" />
-          <Property Name="ModifiedDate" Type="datetime" />
-          <Property Name="CommonDetailID" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="TrainerDetails">
-          <Key>
-            <PropertyRef Name="TrDetailId" />
-          </Key>
-          <Property Name="TrDetailId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="Experience" Type="nvarchar" MaxLength="300" />
-          <Property Name="Companies" Type="nvarchar" MaxLength="200" />
-          <Property Name="SkillSet" Type="nvarchar" MaxLength="300" />
-          <Property Name="TeachingExperience" Type="nvarchar" MaxLength="300" />
-          <Property Name="Rewards" Type="nvarchar" MaxLength="300" />
-          <Property Name="TeachingReason" Type="nvarchar" MaxLength="300" />
-          <Property Name="SocialMediaId" Type="nvarchar" MaxLength="128" />
-          <Property Name="TrainerId" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="Trainers">
-          <Key>
-            <PropertyRef Name="TrainerId" />
-          </Key>
-          <Property Name="TrainerId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="UserID" Type="nvarchar" MaxLength="128" />
-          <Property Name="TypeId" Type="int" />
-          <Property Name="RatingId" Type="nvarchar" MaxLength="128" />
-          <Property Name="StatusId" Type="nvarchar" MaxLength="128" />
-          <Property Name="IsVerified" Type="bit" />
-          <Property Name="CommonDetailID" Type="nvarchar" MaxLength="128" />
-        </EntityType>
-        <EntityType Name="TrainingType">
-          <Key>
-            <PropertyRef Name="TypeId" />
-          </Key>
-          <Property Name="TypeId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="TypeName" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="FirstName" Type="nvarchar(max)" />
-          <Property Name="LastName" Type="nvarchar(max)" />
-          <Property Name="Email" Type="nvarchar" MaxLength="256" />
-          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
-          <Property Name="PasswordHash" Type="nvarchar(max)" />
-          <Property Name="SecurityStamp" Type="nvarchar(max)" />
-          <Property Name="PhoneNumber" Type="nvarchar(max)" />
-          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
-          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
-          <Property Name="LockoutEndDateUtc" Type="datetime" />
-          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
-          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
-        </EntityType>
-        <EntityType Name="UserClaim">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ClaimType" Type="nvarchar(max)" />
-          <Property Name="ClaimValue" Type="nvarchar(max)" />
-        </EntityType>
-        <EntityType Name="UserLogin">
-          <Key>
-            <PropertyRef Name="LoginProvider" />
-            <PropertyRef Name="ProviderKey" />
-            <PropertyRef Name="UserId" />
-          </Key>
-          <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="UserRole">
-          <Key>
-            <PropertyRef Name="UserId" />
-            <PropertyRef Name="RoleId" />
-          </Key>
-          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
-        </EntityType>
-        <EntityType Name="ValidationPasscodes">
-          <Key>
-            <PropertyRef Name="validationElement" />
-          </Key>
-          <Property Name="validationElement" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="passcode" Type="nvarchar(max)" />
-          <Property Name="createdTime" Type="datetime" />
-          <Property Name="expiryTime" Type="datetime" />
-        </EntityType>
-        <Association Name="FK_dbo_Appointment_dbo_Trainee_TraineeID">
-          <End Role="Trainee" Type="Self.Trainee" Multiplicity="0..1" />
-          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Trainee">
-              <PropertyRef Name="TraineeID" />
-            </Principal>
-            <Dependent Role="Appointment">
-              <PropertyRef Name="TraineeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_Appointment_dbo_Trainers_TrainerId">
-          <End Role="Trainers" Type="Self.Trainers" Multiplicity="0..1" />
-          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Trainers">
-              <PropertyRef Name="TrainerId" />
-            </Principal>
-            <Dependent Role="Appointment">
-              <PropertyRef Name="TrainerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_Bid_dbo_Trainee_Trainee_TraineeID">
-          <End Role="Trainee" Type="Self.Trainee" Multiplicity="0..1" />
-          <End Role="Bid" Type="Self.Bid" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Trainee">
-              <PropertyRef Name="TraineeID" />
-            </Principal>
-            <Dependent Role="Bid">
-              <PropertyRef Name="Trainee_TraineeID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_Bid_dbo_Trainers_TrainerId">
-          <End Role="Trainers" Type="Self.Trainers" Multiplicity="0..1" />
-          <End Role="Bid" Type="Self.Bid" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Trainers">
-              <PropertyRef Name="TrainerId" />
-            </Principal>
-            <Dependent Role="Bid">
-              <PropertyRef Name="TrainerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_Enrollment_dbo_Course_CourseID">
-          <End Role="Course" Type="Self.Course" Multiplicity="0..1" />
-          <End Role="Enrollment" Type="Self.Enrollment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Course">
-              <PropertyRef Name="CourseId" />
-            </Principal>
-            <Dependent Role="Enrollment">
-              <PropertyRef Name="CourseID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_SocialMedia_dbo_TrainerDetails_TrDetailId">
-          <End Role="TrainerDetails" Type="Self.TrainerDetails" Multiplicity="0..1" />
-          <End Role="SocialMedia" Type="Self.SocialMedia" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TrainerDetails">
-              <PropertyRef Name="TrDetailId" />
-            </Principal>
-            <Dependent Role="SocialMedia">
-              <PropertyRef Name="TrDetailId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_Trainee_dbo_CommonDetails_CommonDetailID">
-          <End Role="CommonDetails" Type="Self.CommonDetails" Multiplicity="0..1" />
-          <End Role="Trainee" Type="Self.Trainee" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CommonDetails">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Trainee">
-              <PropertyRef Name="CommonDetailID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_TrainerDetails_dbo_Trainers_TrainerId">
-          <End Role="Trainers" Type="Self.Trainers" Multiplicity="0..1" />
-          <End Role="TrainerDetails" Type="Self.TrainerDetails" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Trainers">
-              <PropertyRef Name="TrainerId" />
-            </Principal>
-            <Dependent Role="TrainerDetails">
-              <PropertyRef Name="TrainerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_Trainers_dbo_CommonDetails_CommonDetailID">
-          <End Role="CommonDetails" Type="Self.CommonDetails" Multiplicity="0..1" />
-          <End Role="Trainers" Type="Self.Trainers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="CommonDetails">
-              <PropertyRef Name="ID" />
-            </Principal>
-            <Dependent Role="Trainers">
-              <PropertyRef Name="CommonDetailID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_UserClaim_dbo_User_UserId">
-          <End Role="User" Type="Self.User" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="UserClaim" Type="Self.UserClaim" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserClaim">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_UserLogin_dbo_User_UserId">
-          <End Role="User" Type="Self.User" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="UserLogin" Type="Self.UserLogin" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserLogin">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_UserRole_dbo_Role_RoleId">
-          <End Role="Role" Type="Self.Role" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Role">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserRole">
-              <PropertyRef Name="RoleId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_dbo_UserRole_dbo_User_UserId">
-          <End Role="User" Type="Self.User" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="User">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="UserRole">
-              <PropertyRef Name="UserId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="ModelDesignStoreContainer">
-          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Bid" EntityType="Self.Bid" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BookMarks" EntityType="Self.BookMarks" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Chat" EntityType="Self.Chat" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CommonDetails" EntityType="Self.CommonDetails" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Course" EntityType="Self.Course" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Enrollment" EntityType="Self.Enrollment" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Feedback" EntityType="Self.Feedback" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PaymentModes" EntityType="Self.PaymentModes" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Rating" EntityType="Self.Rating" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Session" EntityType="Self.Session" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="SocialMedia" EntityType="Self.SocialMedia" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Subscription" EntityType="Self.Subscription" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Trainee" EntityType="Self.Trainee" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TrainerDetails" EntityType="Self.TrainerDetails" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Trainers" EntityType="Self.Trainers" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="TrainingType" EntityType="Self.TrainingType" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserClaim" EntityType="Self.UserClaim" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ValidationPasscodes" EntityType="Self.ValidationPasscodes" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_dbo_Appointment_dbo_Trainee_TraineeID" Association="Self.FK_dbo_Appointment_dbo_Trainee_TraineeID">
-            <End Role="Trainee" EntitySet="Trainee" />
-            <End Role="Appointment" EntitySet="Appointment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Appointment_dbo_Trainers_TrainerId" Association="Self.FK_dbo_Appointment_dbo_Trainers_TrainerId">
-            <End Role="Trainers" EntitySet="Trainers" />
-            <End Role="Appointment" EntitySet="Appointment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Bid_dbo_Trainee_Trainee_TraineeID" Association="Self.FK_dbo_Bid_dbo_Trainee_Trainee_TraineeID">
-            <End Role="Trainee" EntitySet="Trainee" />
-            <End Role="Bid" EntitySet="Bid" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Bid_dbo_Trainers_TrainerId" Association="Self.FK_dbo_Bid_dbo_Trainers_TrainerId">
-            <End Role="Trainers" EntitySet="Trainers" />
-            <End Role="Bid" EntitySet="Bid" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Enrollment_dbo_Course_CourseID" Association="Self.FK_dbo_Enrollment_dbo_Course_CourseID">
-            <End Role="Course" EntitySet="Course" />
-            <End Role="Enrollment" EntitySet="Enrollment" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_SocialMedia_dbo_TrainerDetails_TrDetailId" Association="Self.FK_dbo_SocialMedia_dbo_TrainerDetails_TrDetailId">
-            <End Role="TrainerDetails" EntitySet="TrainerDetails" />
-            <End Role="SocialMedia" EntitySet="SocialMedia" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Trainee_dbo_CommonDetails_CommonDetailID" Association="Self.FK_dbo_Trainee_dbo_CommonDetails_CommonDetailID">
-            <End Role="CommonDetails" EntitySet="CommonDetails" />
-            <End Role="Trainee" EntitySet="Trainee" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_TrainerDetails_dbo_Trainers_TrainerId" Association="Self.FK_dbo_TrainerDetails_dbo_Trainers_TrainerId">
-            <End Role="Trainers" EntitySet="Trainers" />
-            <End Role="TrainerDetails" EntitySet="TrainerDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_Trainers_dbo_CommonDetails_CommonDetailID" Association="Self.FK_dbo_Trainers_dbo_CommonDetails_CommonDetailID">
-            <End Role="CommonDetails" EntitySet="CommonDetails" />
-            <End Role="Trainers" EntitySet="Trainers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_UserClaim_dbo_User_UserId" Association="Self.FK_dbo_UserClaim_dbo_User_UserId">
-            <End Role="User" EntitySet="User" />
-            <End Role="UserClaim" EntitySet="UserClaim" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_UserLogin_dbo_User_UserId" Association="Self.FK_dbo_UserLogin_dbo_User_UserId">
-            <End Role="User" EntitySet="User" />
-            <End Role="UserLogin" EntitySet="UserLogin" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_UserRole_dbo_Role_RoleId" Association="Self.FK_dbo_UserRole_dbo_Role_RoleId">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="UserRole" EntitySet="UserRole" />
-          </AssociationSet>
-          <AssociationSet Name="FK_dbo_UserRole_dbo_User_UserId" Association="Self.FK_dbo_UserRole_dbo_User_UserId">
-            <End Role="User" EntitySet="User" />
-            <End Role="UserRole" EntitySet="UserRole" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="ModelDesign.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelDesignStoreContainer">
+    <EntitySet Name="Appointments" EntityType="ModelDesign.Store.Appointments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Attendances" EntityType="ModelDesign.Store.Attendances" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bids" EntityType="ModelDesign.Store.Bids" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="BookMarks" EntityType="ModelDesign.Store.BookMarks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Chats" EntityType="ModelDesign.Store.Chats" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CommonDetails" EntityType="ModelDesign.Store.CommonDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ContactUs" EntityType="ModelDesign.Store.ContactUs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Courses" EntityType="ModelDesign.Store.Courses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Documents" EntityType="ModelDesign.Store.Documents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Enrollments" EntityType="ModelDesign.Store.Enrollments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Feedbacks" EntityType="ModelDesign.Store.Feedbacks" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PaymentModes" EntityType="ModelDesign.Store.PaymentModes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ratings" EntityType="ModelDesign.Store.Ratings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="ModelDesign.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sessions" EntityType="ModelDesign.Store.Sessions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SocialMedias" EntityType="ModelDesign.Store.SocialMedias" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Status" EntityType="ModelDesign.Store.Status" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subscriptions" EntityType="ModelDesign.Store.Subscriptions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="ModelDesign.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Trainees" EntityType="ModelDesign.Store.Trainees" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TrainerDetails" EntityType="ModelDesign.Store.TrainerDetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Trainers" EntityType="ModelDesign.Store.Trainers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TrainingTypes" EntityType="ModelDesign.Store.TrainingTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="ModelDesign.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserClaims" EntityType="ModelDesign.Store.UserClaims" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserLogins" EntityType="ModelDesign.Store.UserLogins" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ValidationPasscodes" EntityType="ModelDesign.Store.ValidationPasscodes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserRole" EntityType="ModelDesign.Store.UserRole" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_dbo_Appointment_dbo_Trainee_TraineeID" Association="ModelDesign.Store.FK_dbo_Appointment_dbo_Trainee_TraineeID">
+      <End Role="Trainee" EntitySet="Trainees" />
+      <End Role="Appointment" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Appointment_dbo_Trainers_TrainerId" Association="ModelDesign.Store.FK_dbo_Appointment_dbo_Trainers_TrainerId">
+      <End Role="Trainer" EntitySet="Trainers" />
+      <End Role="Appointment" EntitySet="Appointments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Bid_dbo_Trainee_Trainee_TraineeID" Association="ModelDesign.Store.FK_dbo_Bid_dbo_Trainee_Trainee_TraineeID">
+      <End Role="Trainee" EntitySet="Trainees" />
+      <End Role="Bid" EntitySet="Bids" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Bid_dbo_Trainers_TrainerId" Association="ModelDesign.Store.FK_dbo_Bid_dbo_Trainers_TrainerId">
+      <End Role="Trainer" EntitySet="Trainers" />
+      <End Role="Bid" EntitySet="Bids" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Trainee_dbo_CommonDetails_CommonDetailID" Association="ModelDesign.Store.FK_dbo_Trainee_dbo_CommonDetails_CommonDetailID">
+      <End Role="CommonDetail" EntitySet="CommonDetails" />
+      <End Role="Trainee" EntitySet="Trainees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Trainers_dbo_CommonDetails_CommonDetailID" Association="ModelDesign.Store.FK_dbo_Trainers_dbo_CommonDetails_CommonDetailID">
+      <End Role="CommonDetail" EntitySet="CommonDetails" />
+      <End Role="Trainer" EntitySet="Trainers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_Enrollment_dbo_Course_CourseID" Association="ModelDesign.Store.FK_dbo_Enrollment_dbo_Course_CourseID">
+      <End Role="Course" EntitySet="Courses" />
+      <End Role="Enrollment" EntitySet="Enrollments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_TrainerDetails_dbo_Trainers_TrainerId" Association="ModelDesign.Store.FK_dbo_TrainerDetails_dbo_Trainers_TrainerId">
+      <End Role="Trainer" EntitySet="Trainers" />
+      <End Role="TrainerDetail" EntitySet="TrainerDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_UserLogin_dbo_User_UserId" Association="ModelDesign.Store.FK_dbo_UserLogin_dbo_User_UserId">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserLogin" EntitySet="UserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_Role" Association="ModelDesign.Store.FK_UserRole_Role">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserRole_User" Association="ModelDesign.Store.FK_UserRole_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserRole" EntitySet="UserRole" />
+    </AssociationSet>
+    <AssociationSet Name="UserUserClaim" Association="ModelDesign.Store.UserUserClaim">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserClaim" EntitySet="UserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="UserSocialMedia" Association="ModelDesign.Store.UserSocialMedia">
+      <End Role="User" EntitySet="Users" />
+      <End Role="SocialMedia" EntitySet="SocialMedias" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Appointments">
+    <Key>
+      <PropertyRef Name="AppointmentId" />
+    </Key>
+    <Property Name="AppointmentId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Phone" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Message" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="TraineeID" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="TrainerId" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Attendances">
+    <Key>
+      <PropertyRef Name="AttendanceId" />
+    </Key>
+    <Property Name="AttendanceId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="SessionId" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="TraineeId" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Bids">
+    <Key>
+      <PropertyRef Name="BidId" />
+    </Key>
+    <Property Name="BidId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="FixedRate" Type="bit" Nullable="false" />
+    <Property Name="FinalBid" Type="bit" Nullable="false" />
+    <Property Name="CourseId" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TrainerId" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="Trainee_TraineeID" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="BookMarks">
+    <Key>
+      <PropertyRef Name="BookmarkId" />
+    </Key>
+    <Property Name="BookmarkId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="CourseId" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Chats">
+    <Key>
+      <PropertyRef Name="ChatID" />
+    </Key>
+    <Property Name="ChatID" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Comments" Type="nvarchar" Nullable="true" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="CommonDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="state" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="City" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="PINCode" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="AcademicYear" Type="datetime" Nullable="true" />
+    <Property Name="HighestQualification" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Department" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Grade" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Photo" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="ContactUs">
+    <Key>
+      <PropertyRef Name="ContactusId" />
+    </Key>
+    <Property Name="ContactusId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Mobile" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Message" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Subject" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Courses">
+    <Key>
+      <PropertyRef Name="CourseId" />
+    </Key>
+    <Property Name="CourseId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="CourseName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Logo" Type="varbinary(max)" Nullable="true" />
+    <Property Name="StatusId" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="URL" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="DocumentId" />
+    </Key>
+    <Property Name="DocumentId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="FileName" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="FileType" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="UserIdentity" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Enrollments">
+    <Key>
+      <PropertyRef Name="EnrollmentId" />
+    </Key>
+    <Property Name="EnrollmentId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="TrainerId" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="DateEnrolled" Type="datetime" Nullable="true" />
+    <Property Name="ModifiedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="ModifiedDateTime" Type="datetime" Nullable="true" />
+    <Property Name="CourseID" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Feedbacks">
+    <Key>
+      <PropertyRef Name="FeedbackId" />
+    </Key>
+    <Property Name="FeedbackId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Comments" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UserId" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="PaymentModes">
+    <Key>
+      <PropertyRef Name="ModeId" />
+    </Key>
+    <Property Name="ModeId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Mode" Type="nvarchar" Nullable="true" MaxLength="20" />
+    <Property Name="StatusId" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Ratings">
+    <Key>
+      <PropertyRef Name="RatingId" />
+    </Key>
+    <Property Name="RatingId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="StarsCount" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="Sessions">
+    <Key>
+      <PropertyRef Name="SessionId" />
+    </Key>
+    <Property Name="SessionId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Timing" Type="datetime" Nullable="true" />
+    <Property Name="CourseId" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="SocialMedias">
+    <Key>
+      <PropertyRef Name="SocialMediaId" />
+    </Key>
+    <Property Name="SocialMediaId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Name" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="Link" Type="nvarchar" Nullable="true" MaxLength="100" />
+    <Property Name="TrDetailId" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="StatusName" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Subscriptions">
+    <Key>
+      <PropertyRef Name="SubscriptionId" />
+    </Key>
+    <Property Name="SubscriptionId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="CourseId" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="Comments" Type="nchar" Nullable="true" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="version" Type="int" Nullable="true" />
+    <Property Name="definition" Type="varbinary(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Trainees">
+    <Key>
+      <PropertyRef Name="TraineeID" />
+    </Key>
+    <Property Name="TraineeID" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="UserID" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="AreaOfIntrest" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="StatusId" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="true" />
+    <Property Name="CreatedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="ModifiedBy" Type="nvarchar" Nullable="true" MaxLength="50" />
+    <Property Name="ModifiedDate" Type="datetime" Nullable="true" />
+    <Property Name="CommonDetailID" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="TrainerDetails">
+    <Key>
+      <PropertyRef Name="TrDetailId" />
+    </Key>
+    <Property Name="TrDetailId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Experience" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="Companies" Type="nvarchar" Nullable="true" MaxLength="200" />
+    <Property Name="SkillSet" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="TeachingExperience" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="Rewards" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="TeachingReason" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="TrainerId" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="Trainers">
+    <Key>
+      <PropertyRef Name="TrainerId" />
+    </Key>
+    <Property Name="TrainerId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="UserID" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="TypeId" Type="int" Nullable="true" />
+    <Property Name="RatingId" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="StatusId" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="IsVerified" Type="bit" Nullable="true" />
+    <Property Name="CommonDetailID" Type="nvarchar" Nullable="true" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="TrainingTypes">
+    <Key>
+      <PropertyRef Name="TypeId" />
+    </Key>
+    <Property Name="TypeId" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="TypeName" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar" Nullable="true" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" Nullable="true" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="DOB" Type="datetime" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="200" />
+    <Property Name="SocialMediaId" Type="nvarchar" Nullable="true" MaxLength="128" />
+    <Property Name="SocialMedia_SocialMediaId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="UserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="ProviderKey" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="UserId" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <EntityType Name="ValidationPasscodes">
+    <Key>
+      <PropertyRef Name="validationElement" />
+    </Key>
+    <Property Name="validationElement" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="passcode" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="createdTime" Type="datetime" Nullable="true" />
+    <Property Name="expiryTime" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Roles_Id" />
+      <PropertyRef Name="Users_Id" />
+    </Key>
+    <Property Name="Roles_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="Users_Id" Type="nvarchar" Nullable="false" MaxLength="128" />
+  </EntityType>
+  <Association Name="FK_dbo_Appointment_dbo_Trainee_TraineeID">
+    <End Role="Trainee" Type="ModelDesign.Store.Trainees" Multiplicity="0..1" />
+    <End Role="Appointment" Type="ModelDesign.Store.Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainee">
+        <PropertyRef Name="TraineeID" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="TraineeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Appointment_dbo_Trainers_TrainerId">
+    <End Role="Trainer" Type="ModelDesign.Store.Trainers" Multiplicity="0..1" />
+    <End Role="Appointment" Type="ModelDesign.Store.Appointments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainer">
+        <PropertyRef Name="TrainerId" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="TrainerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Bid_dbo_Trainee_Trainee_TraineeID">
+    <End Role="Trainee" Type="ModelDesign.Store.Trainees" Multiplicity="0..1" />
+    <End Role="Bid" Type="ModelDesign.Store.Bids" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainee">
+        <PropertyRef Name="TraineeID" />
+      </Principal>
+      <Dependent Role="Bid">
+        <PropertyRef Name="Trainee_TraineeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Bid_dbo_Trainers_TrainerId">
+    <End Role="Trainer" Type="ModelDesign.Store.Trainers" Multiplicity="0..1" />
+    <End Role="Bid" Type="ModelDesign.Store.Bids" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainer">
+        <PropertyRef Name="TrainerId" />
+      </Principal>
+      <Dependent Role="Bid">
+        <PropertyRef Name="TrainerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Trainee_dbo_CommonDetails_CommonDetailID">
+    <End Role="CommonDetail" Type="ModelDesign.Store.CommonDetails" Multiplicity="0..1" />
+    <End Role="Trainee" Type="ModelDesign.Store.Trainees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommonDetail">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Trainee">
+        <PropertyRef Name="CommonDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Trainers_dbo_CommonDetails_CommonDetailID">
+    <End Role="CommonDetail" Type="ModelDesign.Store.CommonDetails" Multiplicity="0..1" />
+    <End Role="Trainer" Type="ModelDesign.Store.Trainers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CommonDetail">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Trainer">
+        <PropertyRef Name="CommonDetailID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_Enrollment_dbo_Course_CourseID">
+    <End Role="Course" Type="ModelDesign.Store.Courses" Multiplicity="0..1" />
+    <End Role="Enrollment" Type="ModelDesign.Store.Enrollments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Course">
+        <PropertyRef Name="CourseId" />
+      </Principal>
+      <Dependent Role="Enrollment">
+        <PropertyRef Name="CourseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_TrainerDetails_dbo_Trainers_TrainerId">
+    <End Role="Trainer" Type="ModelDesign.Store.Trainers" Multiplicity="0..1" />
+    <End Role="TrainerDetail" Type="ModelDesign.Store.TrainerDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Trainer">
+        <PropertyRef Name="TrainerId" />
+      </Principal>
+      <Dependent Role="TrainerDetail">
+        <PropertyRef Name="TrainerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_UserLogin_dbo_User_UserId">
+    <End Role="User" Type="ModelDesign.Store.Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserLogin" Type="ModelDesign.Store.UserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserLogin">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserUserClaim">
+    <End Role="User" Type="ModelDesign.Store.Users" Multiplicity="1" />
+    <End Role="UserClaim" Type="ModelDesign.Store.UserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserClaim">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserSocialMedia">
+    <End Role="User" Type="ModelDesign.Store.Users" Multiplicity="*" />
+    <End Role="SocialMedia" Type="ModelDesign.Store.SocialMedias" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="SocialMedia">
+        <PropertyRef Name="SocialMediaId" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="SocialMedia_SocialMediaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_Role">
+    <End Role="Role" Type="ModelDesign.Store.Roles" Multiplicity="1" />
+    <End Role="UserRole" Type="ModelDesign.Store.UserRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="Roles_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserRole_User">
+    <End Role="UserRole" Type="ModelDesign.Store.UserRole" Multiplicity="*" />
+    <End Role="User" Type="ModelDesign.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserRole">
+        <PropertyRef Name="Users_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ModelDesign" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
@@ -601,13 +594,13 @@
             <End EntitySet="Roles" Role="Role" />
             <End EntitySet="Users" Role="User" />
           </AssociationSet>
-          <AssociationSet Name="UserSocialMedia" Association="ModelDesign.UserSocialMedia">
-            <End Role="User" EntitySet="Users" />
-            <End Role="SocialMedia" EntitySet="SocialMedias" />
-          </AssociationSet>
           <AssociationSet Name="UserUserClaim" Association="ModelDesign.UserUserClaim">
             <End Role="User" EntitySet="Users" />
             <End Role="UserClaim" EntitySet="UserClaims" />
+          </AssociationSet>
+          <AssociationSet Name="UserSocialMedia" Association="ModelDesign.UserSocialMedia">
+            <End Role="User" EntitySet="Users" />
+            <End Role="SocialMedia" EntitySet="SocialMedias" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Appointment">
@@ -820,7 +813,6 @@
           <Property Name="TeachingExperience" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="Rewards" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
           <Property Name="TeachingReason" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
-          <Property Name="SocialMediaId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="TrainerId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Trainer" Relationship="ModelDesign.FK_dbo_TrainerDetails_dbo_Trainers_TrainerId" FromRole="TrainerDetail" ToRole="Trainer" />
         </EntityType>
@@ -870,8 +862,8 @@
           <Property Name="DOB" Type="DateTime" Nullable="false" />
           <Property Name="Address" Type="String" Nullable="false" FixedLength="false" MaxLength="200" Unicode="true" />
           <Property Name="SocialMediaId" Type="String" Nullable="true" FixedLength="false" MaxLength="128" Unicode="true" />
-          <NavigationProperty Name="SocialMedia" Relationship="ModelDesign.UserSocialMedia" FromRole="User" ToRole="SocialMedia" />
           <NavigationProperty Name="UserClaims" Relationship="ModelDesign.UserUserClaim" FromRole="User" ToRole="UserClaim" />
+          <NavigationProperty Name="SocialMedia" Relationship="ModelDesign.UserSocialMedia" FromRole="User" ToRole="SocialMedia" />
         </EntityType>
         <EntityType Name="UserClaim">
           <Key>
@@ -1017,10 +1009,6 @@
           <End Type="ModelDesign.Role" Multiplicity="*" Role="Role" />
           <End Type="ModelDesign.User" Multiplicity="*" Role="User" />
         </Association>
-        <Association Name="UserSocialMedia">
-          <End Type="ModelDesign.User" Role="User" Multiplicity="1" />
-          <End Type="ModelDesign.SocialMedia" Role="SocialMedia" Multiplicity="0..1" />
-        </Association>
         <Association Name="UserUserClaim">
           <End Type="ModelDesign.User" Role="User" Multiplicity="1" />
           <End Type="ModelDesign.UserClaim" Role="UserClaim" Multiplicity="*" />
@@ -1033,315 +1021,327 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="UserSocialMedia">
+          <End Type="ModelDesign.User" Role="User" Multiplicity="1" />
+          <End Type="ModelDesign.SocialMedia" Role="SocialMedia" Multiplicity="1" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
-        <Alias Key="Model" Value="ModelDesign" />
-        <Alias Key="Target" Value="ModelDesign.Store" />
-        <EntityContainerMapping CdmEntityContainer="ModelDesignContainer" StorageEntityContainer="ModelDesignStoreContainer">
-          <EntitySetMapping Name="Appointments">
-            <EntityTypeMapping TypeName="ModelDesign.Appointment">
-              <MappingFragment StoreEntitySet="Appointment">
-                <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
-                <ScalarProperty Name="TraineeID" ColumnName="TraineeID" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="Phone" ColumnName="Phone" />
-                <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Attendances">
-            <EntityTypeMapping TypeName="ModelDesign.Attendance">
-              <MappingFragment StoreEntitySet="Attendance">
-                <ScalarProperty Name="TraineeId" ColumnName="TraineeId" />
-                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
-                <ScalarProperty Name="AttendanceId" ColumnName="AttendanceId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Bids">
-            <EntityTypeMapping TypeName="ModelDesign.Bid">
-              <MappingFragment StoreEntitySet="Bid">
-                <ScalarProperty Name="Trainee_TraineeID" ColumnName="Trainee_TraineeID" />
-                <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
-                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-                <ScalarProperty Name="FinalBid" ColumnName="FinalBid" />
-                <ScalarProperty Name="FixedRate" ColumnName="FixedRate" />
-                <ScalarProperty Name="BidId" ColumnName="BidId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BookMarks">
-            <EntityTypeMapping TypeName="ModelDesign.BookMark">
-              <MappingFragment StoreEntitySet="BookMarks">
-                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-                <ScalarProperty Name="BookmarkId" ColumnName="BookmarkId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Chats">
-            <EntityTypeMapping TypeName="ModelDesign.Chat">
-              <MappingFragment StoreEntitySet="Chat">
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ChatID" ColumnName="ChatID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CommonDetails">
-            <EntityTypeMapping TypeName="ModelDesign.CommonDetail">
-              <MappingFragment StoreEntitySet="CommonDetails">
-                <ScalarProperty Name="Photo" ColumnName="Photo" />
-                <ScalarProperty Name="Grade" ColumnName="Grade" />
-                <ScalarProperty Name="Department" ColumnName="Department" />
-                <ScalarProperty Name="HighestQualification" ColumnName="HighestQualification" />
-                <ScalarProperty Name="AcademicYear" ColumnName="AcademicYear" />
-                <ScalarProperty Name="PINCode" ColumnName="PINCode" />
-                <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="state" ColumnName="state" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ContactUs">
-            <EntityTypeMapping TypeName="ModelDesign.ContactUs">
-              <MappingFragment StoreEntitySet="ContactUs">
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="Message" ColumnName="Message" />
-                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ContactusId" ColumnName="ContactusId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Courses">
-            <EntityTypeMapping TypeName="ModelDesign.Course">
-              <MappingFragment StoreEntitySet="Course">
-                <ScalarProperty Name="URL" ColumnName="URL" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-                <ScalarProperty Name="Logo" ColumnName="Logo" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
-                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Documents">
-            <EntityTypeMapping TypeName="ModelDesign.Document">
-              <MappingFragment StoreEntitySet="Documents">
-                <ScalarProperty Name="UserIdentity" ColumnName="UserIdentity" />
-                <ScalarProperty Name="FileType" ColumnName="FileType" />
-                <ScalarProperty Name="FileName" ColumnName="FileName" />
-                <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Enrollments">
-            <EntityTypeMapping TypeName="ModelDesign.Enrollment">
-              <MappingFragment StoreEntitySet="Enrollment">
-                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
-                <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="DateEnrolled" ColumnName="DateEnrolled" />
-                <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
-                <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Feedbacks">
-            <EntityTypeMapping TypeName="ModelDesign.Feedback">
-              <MappingFragment StoreEntitySet="Feedback">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="PaymentModes">
-            <EntityTypeMapping TypeName="ModelDesign.PaymentMode">
-              <MappingFragment StoreEntitySet="PaymentModes">
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-                <ScalarProperty Name="Mode" ColumnName="Mode" />
-                <ScalarProperty Name="ModeId" ColumnName="ModeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Ratings">
-            <EntityTypeMapping TypeName="ModelDesign.Rating">
-              <MappingFragment StoreEntitySet="Rating">
-                <ScalarProperty Name="StarsCount" ColumnName="StarsCount" />
-                <ScalarProperty Name="RatingId" ColumnName="RatingId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="ModelDesign.Role">
-              <MappingFragment StoreEntitySet="Role">
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Sessions">
-            <EntityTypeMapping TypeName="ModelDesign.Session">
-              <MappingFragment StoreEntitySet="Session">
-                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-                <ScalarProperty Name="Timing" ColumnName="Timing" />
-                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="SocialMedias">
-            <EntityTypeMapping TypeName="ModelDesign.SocialMedia">
-              <MappingFragment StoreEntitySet="SocialMedia">
-                <ScalarProperty Name="TrDetailId" ColumnName="TrDetailId" />
-                <ScalarProperty Name="Link" ColumnName="Link" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="SocialMediaId" ColumnName="SocialMediaId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="ModelDesign.Status">
-              <MappingFragment StoreEntitySet="Status">
-                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Subscriptions">
-            <EntityTypeMapping TypeName="ModelDesign.Subscription">
-              <MappingFragment StoreEntitySet="Subscription">
-                <ScalarProperty Name="Comments" ColumnName="Comments" />
-                <ScalarProperty Name="CourseId" ColumnName="CourseId" />
-                <ScalarProperty Name="SubscriptionId" ColumnName="SubscriptionId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ModelDesign.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Trainees">
-            <EntityTypeMapping TypeName="ModelDesign.Trainee">
-              <MappingFragment StoreEntitySet="Trainee">
-                <ScalarProperty Name="CommonDetailID" ColumnName="CommonDetailID" />
-                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
-                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-                <ScalarProperty Name="AreaOfIntrest" ColumnName="AreaOfIntrest" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="TraineeID" ColumnName="TraineeID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TrainerDetails">
-            <EntityTypeMapping TypeName="ModelDesign.TrainerDetail">
-              <MappingFragment StoreEntitySet="TrainerDetails">
-                <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
-                <ScalarProperty Name="SocialMediaId" ColumnName="SocialMediaId" />
-                <ScalarProperty Name="TeachingReason" ColumnName="TeachingReason" />
-                <ScalarProperty Name="Rewards" ColumnName="Rewards" />
-                <ScalarProperty Name="TeachingExperience" ColumnName="TeachingExperience" />
-                <ScalarProperty Name="SkillSet" ColumnName="SkillSet" />
-                <ScalarProperty Name="Companies" ColumnName="Companies" />
-                <ScalarProperty Name="Experience" ColumnName="Experience" />
-                <ScalarProperty Name="TrDetailId" ColumnName="TrDetailId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Trainers">
-            <EntityTypeMapping TypeName="ModelDesign.Trainer">
-              <MappingFragment StoreEntitySet="Trainers">
-                <ScalarProperty Name="CommonDetailID" ColumnName="CommonDetailID" />
-                <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
-                <ScalarProperty Name="RatingId" ColumnName="RatingId" />
-                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TrainingTypes">
-            <EntityTypeMapping TypeName="ModelDesign.TrainingType">
-              <MappingFragment StoreEntitySet="TrainingType">
-                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
-                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="ModelDesign.User">
-              <MappingFragment StoreEntitySet="User">
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
-                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
-                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
-                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
-                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
-                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
-                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserClaims">
-            <EntityTypeMapping TypeName="ModelDesign.UserClaim">
-              <MappingFragment StoreEntitySet="UserClaim">
-                <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
-                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UserLogins">
-            <EntityTypeMapping TypeName="ModelDesign.UserLogin">
-              <MappingFragment StoreEntitySet="UserLogin">
-                <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
-                <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ValidationPasscodes">
-            <EntityTypeMapping TypeName="ModelDesign.ValidationPasscode">
-              <MappingFragment StoreEntitySet="ValidationPasscodes">
-                <ScalarProperty Name="expiryTime" ColumnName="expiryTime" />
-                <ScalarProperty Name="createdTime" ColumnName="createdTime" />
-                <ScalarProperty Name="passcode" ColumnName="passcode" />
-                <ScalarProperty Name="validationElement" ColumnName="validationElement" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="UserRole" TypeName="ModelDesign.UserRole" StoreEntitySet="UserRole">
-            <EndProperty Name="User">
-              <ScalarProperty Name="Id" ColumnName="UserId" />
-            </EndProperty>
-            <EndProperty Name="Role">
-              <ScalarProperty Name="Id" ColumnName="RoleId" />
-            </EndProperty>
-          </AssociationSetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelDesignStoreContainer" CdmEntityContainer="ModelDesignContainer">
+    <EntitySetMapping Name="Appointments">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Appointment)">
+        <MappingFragment StoreEntitySet="Appointments">
+          <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="TraineeID" ColumnName="TraineeID" />
+          <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Attendances">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Attendance)">
+        <MappingFragment StoreEntitySet="Attendances">
+          <ScalarProperty Name="AttendanceId" ColumnName="AttendanceId" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="TraineeId" ColumnName="TraineeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bids">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Bid)">
+        <MappingFragment StoreEntitySet="Bids">
+          <ScalarProperty Name="BidId" ColumnName="BidId" />
+          <ScalarProperty Name="FixedRate" ColumnName="FixedRate" />
+          <ScalarProperty Name="FinalBid" ColumnName="FinalBid" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
+          <ScalarProperty Name="Trainee_TraineeID" ColumnName="Trainee_TraineeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BookMarks">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.BookMark)">
+        <MappingFragment StoreEntitySet="BookMarks">
+          <ScalarProperty Name="BookmarkId" ColumnName="BookmarkId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Chats">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Chat)">
+        <MappingFragment StoreEntitySet="Chats">
+          <ScalarProperty Name="ChatID" ColumnName="ChatID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CommonDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.CommonDetail)">
+        <MappingFragment StoreEntitySet="CommonDetails">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="PINCode" ColumnName="PINCode" />
+          <ScalarProperty Name="AcademicYear" ColumnName="AcademicYear" />
+          <ScalarProperty Name="HighestQualification" ColumnName="HighestQualification" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ContactUs">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.ContactUs)">
+        <MappingFragment StoreEntitySet="ContactUs">
+          <ScalarProperty Name="ContactusId" ColumnName="ContactusId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Courses">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Course)">
+        <MappingFragment StoreEntitySet="Courses">
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Document)">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="DocumentId" ColumnName="DocumentId" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="FileType" ColumnName="FileType" />
+          <ScalarProperty Name="UserIdentity" ColumnName="UserIdentity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enrollments">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Enrollment)">
+        <MappingFragment StoreEntitySet="Enrollments">
+          <ScalarProperty Name="EnrollmentId" ColumnName="EnrollmentId" />
+          <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
+          <ScalarProperty Name="DateEnrolled" ColumnName="DateEnrolled" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDateTime" ColumnName="ModifiedDateTime" />
+          <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Feedbacks">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Feedback)">
+        <MappingFragment StoreEntitySet="Feedbacks">
+          <ScalarProperty Name="FeedbackId" ColumnName="FeedbackId" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentModes">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.PaymentMode)">
+        <MappingFragment StoreEntitySet="PaymentModes">
+          <ScalarProperty Name="ModeId" ColumnName="ModeId" />
+          <ScalarProperty Name="Mode" ColumnName="Mode" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ratings">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Rating)">
+        <MappingFragment StoreEntitySet="Ratings">
+          <ScalarProperty Name="RatingId" ColumnName="RatingId" />
+          <ScalarProperty Name="StarsCount" ColumnName="StarsCount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Role)">
+        <MappingFragment StoreEntitySet="Roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sessions">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Session)">
+        <MappingFragment StoreEntitySet="Sessions">
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="Timing" ColumnName="Timing" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SocialMedias">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.SocialMedia)">
+        <MappingFragment StoreEntitySet="SocialMedias">
+          <ScalarProperty Name="SocialMediaId" ColumnName="SocialMediaId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="TrDetailId" ColumnName="TrDetailId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Status)">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Subscriptions">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Subscription)">
+        <MappingFragment StoreEntitySet="Subscriptions">
+          <ScalarProperty Name="SubscriptionId" ColumnName="SubscriptionId" />
+          <ScalarProperty Name="CourseId" ColumnName="CourseId" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.sysdiagram)">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trainees">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Trainee)">
+        <MappingFragment StoreEntitySet="Trainees">
+          <ScalarProperty Name="TraineeID" ColumnName="TraineeID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AreaOfIntrest" ColumnName="AreaOfIntrest" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+          <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+          <ScalarProperty Name="CommonDetailID" ColumnName="CommonDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainerDetails">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.TrainerDetail)">
+        <MappingFragment StoreEntitySet="TrainerDetails">
+          <ScalarProperty Name="TrDetailId" ColumnName="TrDetailId" />
+          <ScalarProperty Name="Experience" ColumnName="Experience" />
+          <ScalarProperty Name="Companies" ColumnName="Companies" />
+          <ScalarProperty Name="SkillSet" ColumnName="SkillSet" />
+          <ScalarProperty Name="TeachingExperience" ColumnName="TeachingExperience" />
+          <ScalarProperty Name="Rewards" ColumnName="Rewards" />
+          <ScalarProperty Name="TeachingReason" ColumnName="TeachingReason" />
+          <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Trainers">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.Trainer)">
+        <MappingFragment StoreEntitySet="Trainers">
+          <ScalarProperty Name="TrainerId" ColumnName="TrainerId" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="RatingId" ColumnName="RatingId" />
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="CommonDetailID" ColumnName="CommonDetailID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TrainingTypes">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.TrainingType)">
+        <MappingFragment StoreEntitySet="TrainingTypes">
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="SocialMediaId" ColumnName="SocialMediaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserClaims">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.UserClaim)">
+        <MappingFragment StoreEntitySet="UserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogins">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.UserLogin)">
+        <MappingFragment StoreEntitySet="UserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ValidationPasscodes">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelDesign.ValidationPasscode)">
+        <MappingFragment StoreEntitySet="ValidationPasscodes">
+          <ScalarProperty Name="validationElement" ColumnName="validationElement" />
+          <ScalarProperty Name="passcode" ColumnName="passcode" />
+          <ScalarProperty Name="createdTime" ColumnName="createdTime" />
+          <ScalarProperty Name="expiryTime" ColumnName="expiryTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="UserRole" TypeName="ModelDesign.UserRole" StoreEntitySet="UserRole">
+      <EndProperty Name="Role">
+        <ScalarProperty Name="Id" ColumnName="Roles_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Users_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserSocialMedia" TypeName="ModelDesign.UserSocialMedia" StoreEntitySet="Users">
+      <EndProperty Name="SocialMedia">
+        <ScalarProperty Name="SocialMediaId" ColumnName="SocialMedia_SocialMediaId" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">

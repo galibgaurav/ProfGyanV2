@@ -42,8 +42,8 @@
         <AssociationConnector Association="ModelDesign.FK_dbo_TrainerDetails_dbo_Trainers_TrainerId" />
         <AssociationConnector Association="ModelDesign.FK_dbo_UserLogin_dbo_User_UserId" />
         <AssociationConnector Association="ModelDesign.UserRole" />
-        <AssociationConnector Association="ModelDesign.UserSocialMedia" />
         <AssociationConnector Association="ModelDesign.UserUserClaim" />
+        <AssociationConnector Association="ModelDesign.UserSocialMedia" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
