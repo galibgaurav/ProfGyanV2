@@ -8,11 +8,11 @@ using DataModel;
 
 namespace BusinessLayer
 {
-    public class ContactUsBL
+    public class ContactUsBL : IContactUsBL
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public IEnumerable<ContactUs> GetContactUs()
+        public IEnumerable<ContactUs> GetContactUs()//TODO
         {
             var result=unitOfWork.ContactUsRepository.Get(null, null, "");
             return result;
@@ -23,17 +23,19 @@ namespace BusinessLayer
             return unitOfWork.ContactUsRepository.GetByID(id);
         }
 
-        public void AddContactUs()
+        public ContactUs AddContactUs(ContactUs contactUs)
         {
-
+             return unitOfWork.ContactUsRepository.Insert(contactUs);
         }
 
-        public void UpdateContactUs()
+        public int UpdateContactUs(ContactUs contactUs)
         {
+            return unitOfWork.ContactUsRepository.Update(contactUs);
         }
 
         public void DeleteContactUs(int id)
         {
+             unitOfWork.ContactUsRepository.Delete(id);
         }
     }
 }

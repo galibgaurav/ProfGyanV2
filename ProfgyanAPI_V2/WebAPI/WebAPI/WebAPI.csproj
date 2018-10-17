@@ -361,6 +361,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{5b2c58e9-46db-4fee-9e90-ca8d7f4fb144}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataModel\DataModel.csproj">
       <Project>{015c4688-ec2c-45dc-9911-5e28a5b435ac}</Project>
       <Name>DataModel</Name>

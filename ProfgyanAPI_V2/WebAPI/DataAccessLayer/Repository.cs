@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq.Expressions;
 using DataModel;
+using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
@@ -53,11 +54,17 @@ namespace DataAccessLayer
             return dbSet.Find(id);
         }
 
-        public virtual void Insert(TEntity entity)
+        public virtual TEntity Insert(TEntity entity)
         {
-            dbSet.Add(entity);
-        }
+            var result=dbSet.Add(entity);
+            if (Save() > 0)
+            {
+                return result;
+            }
+            else return null;
 
+        }
+        
         public virtual void Delete(object id)
         {
             TEntity entityToDelete = dbSet.Find(id);
@@ -73,10 +80,15 @@ namespace DataAccessLayer
             dbSet.Remove(entityToDelete);
         }
 
-        public virtual void Update(TEntity entityToUpdate)
+        public virtual int Update(TEntity entityToUpdate)
         {
-            dbSet.Attach(entityToUpdate);
+            var result= dbSet.Attach(entityToUpdate);
             context.Entry(entityToUpdate).State = EntityState.Modified;
+            return Save();
+        }
+        public int Save()
+        {
+                return context.SaveChanges();
         }
     }
 }

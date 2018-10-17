@@ -4,15 +4,20 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using BusinessLayer;
 
 namespace WebAPI.Controllers
 {
     public class ContactUsController : ApiController
     {
-       
+        public IContactUsBL contactUsBL;
+       public ContactUsController(IContactUsBL _contactUsBL)//TODO
+        {
+            contactUsBL = _contactUsBL;
+        }
 
         // GET: api/ContactUs
-        public IEnumerable<string> Get()
+        public IEnumerable<string> Get()//TODO
         {
             //var result=unitOfWork.ContactUsRepository.Get(null, null, "");
             //return result;
