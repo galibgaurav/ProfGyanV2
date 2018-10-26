@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
@@ -12,7 +13,10 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public IEnumerable<ContactUs> GetContactUs()//TODO
+        public IEnumerable<ContactUs> GetContactUs(
+            Expression<Func<ContactUs, bool>> filter = null,
+            Func<IQueryable<ContactUs>, IOrderedQueryable<ContactUs>> orderBy = null,
+            string includeProperties = "")
         {
             var result=unitOfWork.ContactUsRepository.Get(null, null, "");
             return result;
