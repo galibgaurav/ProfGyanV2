@@ -13,15 +13,6 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public IEnumerable<ContactUs> GetContactUs(
-            Expression<Func<ContactUs, bool>> filter = null,
-            Func<IQueryable<ContactUs>, IOrderedQueryable<ContactUs>> orderBy = null,
-            string includeProperties = "")
-        {
-            var result=unitOfWork.ContactUsRepository.Get(null, null, "");
-            return result;
-        }
-
         public ContactUs GetContactUs(int id)
         {
             return unitOfWork.ContactUsRepository.GetByID(id);
@@ -40,6 +31,13 @@ namespace BusinessLayer
         public void DeleteContactUs(int id)
         {
              unitOfWork.ContactUsRepository.Delete(id);
+        }
+
+        public IEnumerable<ContactUs> GetContactUs(Expression<Func<ContactUs, bool>> filter = null,
+            Func<IQueryable<ContactUs>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+        {
+            var result = unitOfWork.ContactUsRepository.Get(null, null, "");
+            return result;
         }
     }
 }

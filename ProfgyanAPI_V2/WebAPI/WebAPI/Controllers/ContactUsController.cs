@@ -13,18 +13,23 @@ namespace WebAPI.Controllers
     public class ContactUsController : ApiController
     {
        public IContactUsBL contactUsBL;
-       public ContactUsController(IContactUsBL _contactUsBL)//TODO
-        {
-            contactUsBL = _contactUsBL;
-        }
+       //public ContactUsController(IContactUsBL _contactUsBL)//TODO
+       // {
+       //     contactUsBL = _contactUsBL;
+       // }
 
+
+
+        public ContactUsController()//TODO
+        {
+            contactUsBL = new ContactUsBL();
+        }
         // GET: api/ContactUs
         public IEnumerable<ContactUs> Get()
         {
            
-            var result = contactUsBL.GetContactUs(null, null, String.Empty);
-            //TODO use mapper for conversion;
-            //result=result.
+            var contactUsList = contactUsBL.GetContactUs(null, null, String.Empty);
+            var result=Mapper.Map<IEnumerable<ContactUs>>(contactUsList);
             return result;
         }
 
@@ -35,8 +40,11 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/ContactUs
-        public void Post([FromBody]string value)
+        public void Post(ContactUs contactUs)
         {
+            var postData = Mapper.Map<DataModel.ContactUs>(contactUs);
+            var result=contactUsBL.AddContactUs(postData);
+
         }
 
         // PUT: api/ContactUs/5
