@@ -42,9 +42,9 @@ namespace WebAPI.Controllers
         // POST: api/ContactUs
         public void Post(ContactUs contactUs)
         {
-            var postData = Mapper.Map<DataModel.ContactUs>(contactUs);
+            var postData = Mapper.Map<BusinessDataModel.ContactUs>(contactUs);
             var result=contactUsBL.AddContactUs(postData);
-
+            
         }
 
         // PUT: api/ContactUs/5

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.Mappers;
 using DataModelDTO;
-using DataModel;
+using BusinessDataModel;
 
 namespace WebAPI.Controllers
 {
@@ -16,8 +16,8 @@ namespace WebAPI.Controllers
         {
             Mapper.Initialize(
                 (config) => {
-                    config.CreateMap<DataModelDTO.Appointment, DataModel.Appointment>().ReverseMap();
-                    config.CreateMap<DataModelDTO.ContactUs, DataModel.ContactUs>().ReverseMap();
+                    config.CreateMap<DataModelDTO.Appointment, BusinessDataModel.Appointment>().ReverseMap();
+                    config.CreateMap<DataModelDTO.ContactUs, BusinessDataModel.ContactUs>().ReverseMap();
                     }
                 );
         }

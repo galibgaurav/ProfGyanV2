@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer;
-using DataModel;
+using BusinessDataModel;
 
 namespace BusinessLayer
 {
@@ -20,17 +20,21 @@ namespace BusinessLayer
 
         public ContactUs AddContactUs(ContactUs contactUs)
         {
-             return unitOfWork.ContactUsRepository.Insert(contactUs);
+            var result= unitOfWork.ContactUsRepository.Insert(contactUs);
+            unitOfWork.Save();
+            return result;
         }
 
-        public int UpdateContactUs(ContactUs contactUs)
+        public void UpdateContactUs(ContactUs contactUs)
         {
-            return unitOfWork.ContactUsRepository.Update(contactUs);
+            unitOfWork.ContactUsRepository.Update(contactUs);
+            unitOfWork.Save();
         }
 
         public void DeleteContactUs(int id)
         {
              unitOfWork.ContactUsRepository.Delete(id);
+             unitOfWork.Save();
         }
 
         public IEnumerable<ContactUs> GetContactUs(Expression<Func<ContactUs, bool>> filter = null,

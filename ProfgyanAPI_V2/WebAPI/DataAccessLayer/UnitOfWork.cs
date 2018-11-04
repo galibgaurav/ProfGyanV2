@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataModel;
+using BusinessDataModel;
 
 namespace DataAccessLayer
 {
     public class UnitOfWork : IDisposable
     {
-        private ModelDesignContainer context = new ModelDesignContainer();
+        private ApplicationDBContext context = new ApplicationDBContext();
         private Repository<Appointment> appointmentRepository;
         private Repository<ContactUs> contactUsRepository;
 

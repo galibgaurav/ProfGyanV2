@@ -4,18 +4,17 @@ using System.Linq;
 using System.Data;
 using System.Data.Entity;
 using System.Linq.Expressions;
-using DataModel;
 using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
     public class Repository<TEntity> where TEntity : class
     {
-        //internal ProjectDBContext context;
-        internal ModelDesignContainer context;
+    
+        internal ApplicationDBContext context;
         internal DbSet<TEntity> dbSet;
 
-        public Repository(ModelDesignContainer context)
+        public Repository(ApplicationDBContext context)
         {
             this.context = context;
             this.dbSet = context.Set<TEntity>();
@@ -56,13 +55,8 @@ namespace DataAccessLayer
 
         public virtual TEntity Insert(TEntity entity)
         {
-            var result=dbSet.Add(entity);
-            if (Save() > 0)
-            {
-                return result;
-            }
-            else return null;
-
+            var result = dbSet.Add(entity);
+            return result;
         }
         
         public virtual void Delete(object id)
@@ -80,15 +74,11 @@ namespace DataAccessLayer
             dbSet.Remove(entityToDelete);
         }
 
-        public virtual int Update(TEntity entityToUpdate)
+        public virtual void Update(TEntity entityToUpdate)
         {
             var result= dbSet.Attach(entityToUpdate);
             context.Entry(entityToUpdate).State = EntityState.Modified;
-            return Save();
         }
-        public int Save()
-        {
-                return context.SaveChanges();
-        }
+        
     }
 }
