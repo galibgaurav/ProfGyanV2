@@ -12,18 +12,16 @@ namespace WebAPI.Controllers
 {
     public class ContactUsController : ApiController
     {
-       public IContactUsBL contactUsBL;
-       //public ContactUsController(IContactUsBL _contactUsBL)//TODO
-       // {
-       //     contactUsBL = _contactUsBL;
-       // }
-
-
-
-        public ContactUsController()//TODO
+        public IContactUsBL contactUsBL;
+        public ContactUsController(IContactUsBL _contactUsBL)
         {
-            contactUsBL = new ContactUsBL();
+                   contactUsBL = _contactUsBL;
         }
+
+        //public ContactUsController()//TODO
+        //{
+        //    contactUsBL = new ContactUsBL();
+        //}
         // GET: api/ContactUs
         public IEnumerable<ContactUs> Get()
         {
