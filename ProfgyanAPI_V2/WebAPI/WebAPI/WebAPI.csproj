@@ -415,6 +415,10 @@
       <Project>{47d8ae15-4f3b-497b-acf9-80afc6606693}</Project>
       <Name>DataAccessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IBusinessLayer\IBusinessLayer.csproj">
+      <Project>{82ED0CCA-D1C9-477E-9B5E-97149AF92794}</Project>
+      <Name>IBusinessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

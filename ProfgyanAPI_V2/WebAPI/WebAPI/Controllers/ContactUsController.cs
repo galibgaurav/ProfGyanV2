@@ -7,6 +7,7 @@ using System.Web.Http;
 using BusinessLayer;
 using DataModelDTO;
 using AutoMapper;
+using IBusinessLayer;
 
 namespace WebAPI.Controllers
 {
@@ -23,11 +24,11 @@ namespace WebAPI.Controllers
         //    contactUsBL = new ContactUsBL();
         //}
         // GET: api/ContactUs
-        public IEnumerable<ContactUs> Get()
+        public IEnumerable<DataModelDTO.ContactUs> Get()
         {
            
             var contactUsList = contactUsBL.GetContactUs(null, null, String.Empty);
-            var result=Mapper.Map<IEnumerable<ContactUs>>(contactUsList);
+            var result= Mapper.Map<IEnumerable<DataModelDTO.ContactUs>>(contactUsList);
             return result;
         }
 
@@ -38,7 +39,7 @@ namespace WebAPI.Controllers
         }
 
         // POST: api/ContactUs
-        public void Post(ContactUs contactUs)
+        public void Post(DataModelDTO.ContactUs contactUs)
         {
             var postData = Mapper.Map<BusinessDataModel.ContactUs>(contactUs);
             var result=contactUsBL.AddContactUs(postData);

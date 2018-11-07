@@ -21,3 +21,5 @@
 /ProfgyanAPI_V2/WebAPI/DataAccessLayer/Migrations/201811032023034_IntialSchemaCreation.resx
 /ProfgyanAPI_V2/WebAPI/DataAccessLayer/Migrations/201811032023034_IntialSchemaCreation.Designer.cs
 /ProfgyanAPI_V2/WebAPI/DataAccessLayer/Migrations/201811032023034_IntialSchemaCreation.cs
+/ProfgyanAPI_V2/WebAPI/IBusinessLayer/bin/Debug
+/ProfgyanAPI_V2/WebAPI/IBusinessLayer/obj/Debug
