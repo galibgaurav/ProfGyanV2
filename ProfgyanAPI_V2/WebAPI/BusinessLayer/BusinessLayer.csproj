@@ -51,6 +51,10 @@
   <ItemGroup>
     <Compile Include="AppointmentBL.cs" />
     <Compile Include="AttendanceBL.cs" />
+    <Compile Include="BidBL.cs" />
+    <Compile Include="BookmarkBL.cs" />
+    <Compile Include="ChatBL.cs" />
+    <Compile Include="CommonDetailBL.cs" />
     <Compile Include="ContactUsBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

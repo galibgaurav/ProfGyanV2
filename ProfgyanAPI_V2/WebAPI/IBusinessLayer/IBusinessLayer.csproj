@@ -43,6 +43,10 @@
   <ItemGroup>
     <Compile Include="IAppointmentBL.cs" />
     <Compile Include="IAttendanceBL.cs" />
+    <Compile Include="IBidBL.cs" />
+    <Compile Include="IBookmarkBL.cs" />
+    <Compile Include="IChatBL.cs" />
+    <Compile Include="ICommonDetailBL.cs" />
     <Compile Include="IContactUsBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
