@@ -48,6 +48,13 @@
     <Compile Include="IChatBL.cs" />
     <Compile Include="ICommonDetailBL.cs" />
     <Compile Include="IContactUsBL.cs" />
+    <Compile Include="ICourseBL.cs" />
+    <Compile Include="IDocumentBL.cs" />
+    <Compile Include="IFeedbackBL.cs" />
+    <Compile Include="IPaymentModeBL.cs" />
+    <Compile Include="IRatingBL.cs" />
+    <Compile Include="ISessionDL.cs" />
+    <Compile Include="ISocialMediaBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
