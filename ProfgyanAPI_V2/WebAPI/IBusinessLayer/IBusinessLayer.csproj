@@ -50,12 +50,15 @@
     <Compile Include="IContactUsBL.cs" />
     <Compile Include="ICourseBL.cs" />
     <Compile Include="IDocumentBL.cs" />
+    <Compile Include="IEnrollmentBL.cs" />
     <Compile Include="IFeedbackBL.cs" />
     <Compile Include="IPaymentModeBL.cs" />
     <Compile Include="IRatingBL.cs" />
     <Compile Include="ISessionDL.cs" />
     <Compile Include="ISocialMediaBL.cs" />
     <Compile Include="IStatusBL.cs" />
+    <Compile Include="ISubscriptionBL.cs" />
+    <Compile Include="ITraineeBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
