@@ -55,6 +55,7 @@
     <Compile Include="IRatingBL.cs" />
     <Compile Include="ISessionDL.cs" />
     <Compile Include="ISocialMediaBL.cs" />
+    <Compile Include="IStatusBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

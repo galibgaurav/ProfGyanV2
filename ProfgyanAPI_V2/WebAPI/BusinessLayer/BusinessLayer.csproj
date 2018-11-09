@@ -65,6 +65,7 @@
     <Compile Include="RatingBL.cs" />
     <Compile Include="SessionDL.cs" />
     <Compile Include="SocialMediaBL.cs" />
+    <Compile Include="StatusBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessDataModel\BusinessDataModel.csproj">
