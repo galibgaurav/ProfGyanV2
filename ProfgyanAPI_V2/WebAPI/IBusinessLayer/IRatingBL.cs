@@ -4,14 +4,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using BusinessDataModel;
 
-namespace BusinessLayer
+namespace IBusinessLayer
 {
     public interface IRatingBL
     {
         Rating AddRating(Rating rating);
-        void DeleteRating(int id);
-        IEnumerable<Rating> GetAppointment(Expression<Func<Rating, bool>> filter = null, Func<IQueryable<Rating>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "");
-        Rating GetRating(int id);
+        void DeleteRating(string id);
+        IEnumerable<Rating> GetAppointment(Expression<Func<Rating, bool>> filter = null, Func<IQueryable<Rating>, IOrderedQueryable<Rating>> orderBy = null, string includeProperties = "");
+        Rating GetRating(string id);
         void UpdateRating(Rating rating);
     }
 }

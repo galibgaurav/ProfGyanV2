@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Trainer GetTrainer(int id)
+        public Trainer GetTrainer(string id)
         {
             return unitOfWork.TrainerRepository.GetByID(id);
         }
@@ -32,7 +32,7 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteTrainer(int id)
+        public void DeleteTrainer(string id)
         {
             unitOfWork.TrainerRepository.Delete(id);
             unitOfWork.Save();

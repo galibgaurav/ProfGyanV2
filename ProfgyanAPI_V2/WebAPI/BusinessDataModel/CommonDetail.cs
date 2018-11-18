@@ -31,9 +31,9 @@ namespace BusinessDataModel
         public string Grade { get; set; }
         public byte[] Photo { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<Trainee> Trainees { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<Trainer> Trainers { get; set; }
     }
 }

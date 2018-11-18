@@ -4,14 +4,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using BusinessDataModel;
 
-namespace BusinessLayer
+namespace IBusinessLayer
 {
     public interface ISocialMediaBL
     {
         SocialMedia AddSocialMedia(SocialMedia socialMedia);
-        void DeleteSocialMedia(int id);
-        IEnumerable<SocialMedia> GetSocialMedia(Expression<Func<SocialMedia, bool>> filter = null, Func<IQueryable<SocialMedia>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "");
-        SocialMedia GetSocialMedia(int id);
+        void DeleteSocialMedia(string id);
+        IEnumerable<SocialMedia> GetSocialMedia(Expression<Func<SocialMedia, bool>> filter = null, Func<IQueryable<SocialMedia>, IOrderedQueryable<SocialMedia>> orderBy = null, string includeProperties = "");
+        SocialMedia GetSocialMedia(string id);
         void UpdateSocialMedia(SocialMedia socialMedia);
     }
 }

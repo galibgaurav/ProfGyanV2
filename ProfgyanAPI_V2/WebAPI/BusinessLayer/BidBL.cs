@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Bid GetBid(int id)
+        public Bid GetBid(string id)
         {
             return unitOfWork.BidRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteBid(int id)
+        public void DeleteBid(string id)
         {
             unitOfWork.BidRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<Bid> GetBid(Expression<Func<Bid, bool>> filter = null,
-            Func<IQueryable<Bid>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<Bid>, IOrderedQueryable<Bid>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.BidRepository.Get(null, null, "");
             return result;

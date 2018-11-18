@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Status GetStatus(int id)
+        public Status GetStatus(string id)
         {
             return unitOfWork.StatusRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteStatus(int id)
+        public void DeleteStatus(string id)
         {
             unitOfWork.StatusRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<Status> GetSocialMedia(Expression<Func<Status, bool>> filter = null,
-            Func<IQueryable<Status>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<Status>, IOrderedQueryable<Status>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.StatusRepository.Get(null, null, "");
             return result;

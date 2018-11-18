@@ -4,14 +4,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using BusinessDataModel;
 
-namespace BusinessLayer
+namespace IBusinessLayer
 {
     public interface IChatBL
     {
         Chat AddChat(Chat chat);
-        void DeleteChat(int id);
-        IEnumerable<Chat> GetChat(Expression<Func<Chat, bool>> filter = null, Func<IQueryable<Chat>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "");
-        Chat GetChat(int id);
+        void DeleteChat(string id);
+        IEnumerable<Chat> GetChat(Expression<Func<Chat, bool>> filter = null, Func<IQueryable<Chat>, IOrderedQueryable<Chat>> orderBy = null, string includeProperties = "");
+        Chat GetChat(string id);
         void UpdateChat(Chat chat);
     }
 }

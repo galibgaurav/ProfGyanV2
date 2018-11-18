@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Appointment GetAppointment(int id)
+        public Appointment GetAppointment(string id)
         {
             return unitOfWork.AppointmentRepository.GetByID(id);
         }
@@ -32,7 +32,7 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteAppointment(int id)
+        public void DeleteAppointment(string id)
         {
             unitOfWork.AppointmentRepository.Delete(id);
             unitOfWork.Save();

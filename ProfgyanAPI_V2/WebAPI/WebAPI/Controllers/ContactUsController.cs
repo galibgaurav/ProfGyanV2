@@ -19,10 +19,6 @@ namespace WebAPI.Controllers
                    contactUsBL = _contactUsBL;
         }
 
-        //public ContactUsController()//TODO
-        //{
-        //    contactUsBL = new ContactUsBL();
-        //}
         // GET: api/ContactUs
         public IEnumerable<DataModelDTO.ContactUs> Get()
         {
@@ -33,27 +29,33 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/ContactUs/5
-        public string Get(int id)
+        public ContactUs Get(string id)
         {
-            return "value";
+            var contactUs = contactUsBL.GetContactUs(id);
+            var result = Mapper.Map<DataModelDTO.ContactUs>(contactUs);
+            return result;
         }
 
         // POST: api/ContactUs
-        public void Post(DataModelDTO.ContactUs contactUs)
+        public ContactUs Post(DataModelDTO.ContactUs contactUs)
         {
             var postData = Mapper.Map<BusinessDataModel.ContactUs>(contactUs);
             var result=contactUsBL.AddContactUs(postData);
-            
+            var resultToReturn = Mapper.Map<DataModelDTO.ContactUs>(result);
+            return resultToReturn;
         }
 
-        // PUT: api/ContactUs/5
-        public void Put(int id, [FromBody]string value)
+        // PUT: api/ContactUs
+        public void Put(DataModelDTO.ContactUs contactUs)
         {
+            var putData = Mapper.Map<BusinessDataModel.ContactUs>(contactUs);
+            contactUsBL.UpdateContactUs(putData);
         }
 
         // DELETE: api/ContactUs/5
-        public void Delete(int id)
+        public void Delete(string id)
         {
+            contactUsBL.DeleteContactUs(id);
         }
     }
 }

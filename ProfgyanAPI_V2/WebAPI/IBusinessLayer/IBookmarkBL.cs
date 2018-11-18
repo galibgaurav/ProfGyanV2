@@ -4,14 +4,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using BusinessDataModel;
 
-namespace BusinessLayer
+namespace IBusinessLayer
 {
     public interface IBookmarkBL
     {
         BookMark AddBookMark(BookMark bookMark);
-        void DeleteBookMark(int id);
-        IEnumerable<BookMark> GetBid(Expression<Func<BookMark, bool>> filter = null, Func<IQueryable<BookMark>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "");
-        BookMark GetBookMark(int id);
+        void DeleteBookMark(string id);
+        IEnumerable<BookMark> GetBid(Expression<Func<BookMark, bool>> filter = null, Func<IQueryable<BookMark>, IOrderedQueryable<BookMark>> orderBy = null, string includeProperties = "");
+        BookMark GetBookMark(string id);
         void UpdateBookMark(BookMark bookMark);
     }
 }

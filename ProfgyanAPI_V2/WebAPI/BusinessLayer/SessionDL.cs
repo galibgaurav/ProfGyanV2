@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Session GetSession(int id)
+        public Session GetSession(string id)
         {
             return unitOfWork.SessionRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteSession(int id)
+        public void DeleteSession(string id)
         {
             unitOfWork.SessionRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<Session> GetSession(Expression<Func<Session, bool>> filter = null,
-            Func<IQueryable<Session>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<Session>, IOrderedQueryable<Session>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.SessionRepository.Get(null, null, "");
             return result;

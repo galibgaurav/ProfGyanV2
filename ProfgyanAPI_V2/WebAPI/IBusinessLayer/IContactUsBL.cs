@@ -10,14 +10,14 @@ namespace IBusinessLayer
     {
         ContactUs AddContactUs(ContactUs contactUs);
 
-        void DeleteContactUs(int id);
+        void DeleteContactUs(string id);
 
         IEnumerable<ContactUs> GetContactUs(
             Expression<Func<ContactUs, bool>> filter = null,
-            Func<IQueryable<ContactUs>, IOrderedQueryable<string>> orderBy = null,
+            Func<IQueryable<ContactUs>, IOrderedQueryable<ContactUs>> orderBy = null,
             string includeProperties = "");
 
-        ContactUs GetContactUs(int id);
+        ContactUs GetContactUs(string id);
 
         void UpdateContactUs(ContactUs contactUs);
     }

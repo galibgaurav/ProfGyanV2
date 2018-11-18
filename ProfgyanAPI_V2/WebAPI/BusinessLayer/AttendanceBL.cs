@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Attendance GetAttendance(int id)
+        public Attendance GetAttendance(string id)
         {
             return unitOfWork.AttendanceRepository.GetByID(id);
         }
@@ -32,7 +32,7 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteAttendance(int id)
+        public void DeleteAttendance(string id)
         {
             unitOfWork.AttendanceRepository.Delete(id);
             unitOfWork.Save();

@@ -31,9 +31,9 @@ namespace BusinessDataModel
         public Nullable<System.DateTime> ModifiedDate { get; set; }
         public string CommonDetailID { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<Appointment> Appointments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        
         public virtual ICollection<Bid> Bids { get; set; }
         public virtual CommonDetail CommonDetail { get; set; }
     }

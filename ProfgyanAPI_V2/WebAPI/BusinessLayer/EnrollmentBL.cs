@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Enrollment GetEnrollment(int id)
+        public Enrollment GetEnrollment(string id)
         {
             return unitOfWork.EnrollmentRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteEnrollment(int id)
+        public void DeleteEnrollment(string id)
         {
             unitOfWork.EnrollmentRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<Enrollment> GetEnrollment(Expression<Func<Enrollment, bool>> filter = null,
-            Func<IQueryable<Enrollment>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<Enrollment>, IOrderedQueryable<Enrollment>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.EnrollmentRepository.Get(null, null, "");
             return result;

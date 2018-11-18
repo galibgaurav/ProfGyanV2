@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public CommonDetail GetCommonDetail(int id)
+        public CommonDetail GetCommonDetail(string id)
         {
             return unitOfWork.CommonDetailRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteCommonDetail(int id)
+        public void DeleteCommonDetail(string id)
         {
             unitOfWork.CommonDetailRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<CommonDetail> GetCommonDetail(Expression<Func<CommonDetail, bool>> filter = null,
-            Func<IQueryable<CommonDetail>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<CommonDetail>, IOrderedQueryable<CommonDetail>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.CommonDetailRepository.Get(null, null, "");
             return result;

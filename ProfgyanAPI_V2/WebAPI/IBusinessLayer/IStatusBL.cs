@@ -4,14 +4,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using BusinessDataModel;
 
-namespace BusinessLayer
+namespace IBusinessLayer
 {
     public interface IStatusBL
     {
         Status AddStatus(Status status);
-        void DeleteStatus(int id);
-        IEnumerable<Status> GetSocialMedia(Expression<Func<Status, bool>> filter = null, Func<IQueryable<Status>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "");
-        Status GetStatus(int id);
+        void DeleteStatus(string id);
+        IEnumerable<Status> GetSocialMedia(Expression<Func<Status, bool>> filter = null, Func<IQueryable<Status>, IOrderedQueryable<Status>> orderBy = null, string includeProperties = "");
+        Status GetStatus(string id);
         void UpdateStatus(Status status);
     }
 }

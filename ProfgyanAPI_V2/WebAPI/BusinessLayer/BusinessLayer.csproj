@@ -69,6 +69,8 @@
     <Compile Include="SubscriptionBL.cs" />
     <Compile Include="TraineeBL.cs" />
     <Compile Include="TrainerBL.cs" />
+    <Compile Include="TrainingTypeBL.cs" />
+    <Compile Include="ValidationPasscodeBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessDataModel\BusinessDataModel.csproj">

@@ -59,6 +59,8 @@
     <Compile Include="IStatusBL.cs" />
     <Compile Include="ISubscriptionBL.cs" />
     <Compile Include="ITraineeBL.cs" />
+    <Compile Include="ITrainingTypeBL.cs" />
+    <Compile Include="IValidationPasscodeBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

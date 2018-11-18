@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Subscription GetSubscription(int id)
+        public Subscription GetSubscription(string id)
         {
             return unitOfWork.SubscriptionRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteSubscription(int id)
+        public void DeleteSubscription(string id)
         {
             unitOfWork.SubscriptionRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<Subscription> GetAppointment(Expression<Func<Subscription, bool>> filter = null,
-            Func<IQueryable<Subscription>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<Subscription>, IOrderedQueryable<Subscription>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.SubscriptionRepository.Get(null, null, "");
             return result;

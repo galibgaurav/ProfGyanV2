@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Document GetDocument(int id)
+        public Document GetDocument(string id)
         {
             return unitOfWork.DocumentRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteDocument(int id)
+        public void DeleteDocument(string id)
         {
             unitOfWork.DocumentRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<Document> GetDocument(Expression<Func<Document, bool>> filter = null,
-            Func<IQueryable<Document>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<Document>, IOrderedQueryable<Document>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.DocumentRepository.Get(null, null, "");
             return result;

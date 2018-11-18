@@ -4,14 +4,14 @@ using System.Linq;
 using System.Linq.Expressions;
 using BusinessDataModel;
 
-namespace BusinessLayer
+namespace IBusinessLayer
 {
     public interface ISessionDL
     {
         Session AddSession(Session session);
-        void DeleteSession(int id);
-        IEnumerable<Session> GetSession(Expression<Func<Session, bool>> filter = null, Func<IQueryable<Session>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "");
-        Session GetSession(int id);
+        void DeleteSession(string id);
+        IEnumerable<Session> GetSession(Expression<Func<Session, bool>> filter = null, Func<IQueryable<Session>, IOrderedQueryable<Session>> orderBy = null, string includeProperties = "");
+        Session GetSession(string id);
         void UpdateSession(Session session);
     }
 }

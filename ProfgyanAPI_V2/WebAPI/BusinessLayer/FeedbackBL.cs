@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Feedback GetFeedback(int id)
+        public Feedback GetFeedback(string id)
         {
             return unitOfWork.FeedbackRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteFeedback(int id)
+        public void DeleteFeedback(string id)
         {
             unitOfWork.FeedbackRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<Feedback> GetFeedback(Expression<Func<Feedback, bool>> filter = null,
-            Func<IQueryable<Feedback>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<Feedback>, IOrderedQueryable<Feedback>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.FeedbackRepository.Get(null, null, "");
             return result;

@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Rating GetRating(int id)
+        public Rating GetRating(string id)
         {
             return unitOfWork.RatingRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteRating(int id)
+        public void DeleteRating(string id)
         {
             unitOfWork.RatingRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<Rating> GetAppointment(Expression<Func<Rating, bool>> filter = null,
-            Func<IQueryable<Rating>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<Rating>, IOrderedQueryable<Rating>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.RatingRepository.Get(null, null, "");
             return result;

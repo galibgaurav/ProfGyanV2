@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Chat GetChat(int id)
+        public Chat GetChat(string id)
         {
             return unitOfWork.ChatRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteChat(int id)
+        public void DeleteChat(string id)
         {
             unitOfWork.ChatRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<Chat> GetChat(Expression<Func<Chat, bool>> filter = null,
-            Func<IQueryable<Chat>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<Chat>, IOrderedQueryable<Chat>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.ChatRepository.Get(null, null, "");
             return result;

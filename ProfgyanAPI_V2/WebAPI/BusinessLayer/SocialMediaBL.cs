@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public SocialMedia GetSocialMedia(int id)
+        public SocialMedia GetSocialMedia(string id)
         {
             return unitOfWork.SocialMediaRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteSocialMedia(int id)
+        public void DeleteSocialMedia(string id)
         {
             unitOfWork.SocialMediaRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<SocialMedia> GetSocialMedia(Expression<Func<SocialMedia, bool>> filter = null,
-            Func<IQueryable<SocialMedia>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<SocialMedia>, IOrderedQueryable<SocialMedia>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.SocialMediaRepository.Get(null, null, "");
             return result;

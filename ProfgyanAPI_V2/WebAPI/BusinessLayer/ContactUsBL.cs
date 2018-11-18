@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public ContactUs GetContactUs(int id)
+        public ContactUs GetContactUs(string id)
         {
             return unitOfWork.ContactUsRepository.GetByID(id);
         }
@@ -32,16 +32,16 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteContactUs(int id)
+        public void DeleteContactUs(string id)
         {
              unitOfWork.ContactUsRepository.Delete(id);
              unitOfWork.Save();
         }
 
         public IEnumerable<ContactUs> GetContactUs(Expression<Func<ContactUs, bool>> filter = null,
-            Func<IQueryable<ContactUs>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<ContactUs>, IOrderedQueryable<ContactUs>> orderBy = null, string includeProperties = "")
         {
-            var result = unitOfWork.ContactUsRepository.Get(null, null, "");
+            var result = unitOfWork.ContactUsRepository.Get(filter, orderBy, includeProperties);
             return result;
         }
     }

@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public PaymentMode GetPaymentMode(int id)
+        public PaymentMode GetPaymentMode(string id)
         {
             return unitOfWork.PaymentModeRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeletePaymentMode(int id)
+        public void DeletePaymentMode(string id)
         {
             unitOfWork.PaymentModeRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<PaymentMode> GetPaymentMode(Expression<Func<PaymentMode, bool>> filter = null,
-            Func<IQueryable<PaymentMode>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<PaymentMode>, IOrderedQueryable<PaymentMode>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.PaymentModeRepository.Get(null, null, "");
             return result;

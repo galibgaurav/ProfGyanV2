@@ -14,7 +14,7 @@ namespace BusinessLayer
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
 
-        public Course GetCourse(int id)
+        public Course GetCourse(string id)
         {
             return unitOfWork.CourseRepository.GetByID(id);
         }
@@ -32,14 +32,14 @@ namespace BusinessLayer
             unitOfWork.Save();
         }
 
-        public void DeleteCourse(int id)
+        public void DeleteCourse(string id)
         {
             unitOfWork.CourseRepository.Delete(id);
             unitOfWork.Save();
         }
 
         public IEnumerable<Course> GetCourse(Expression<Func<Course, bool>> filter = null,
-            Func<IQueryable<Course>, IOrderedQueryable<string>> orderBy = null, string includeProperties = "")
+            Func<IQueryable<Course>, IOrderedQueryable<Course>> orderBy = null, string includeProperties = "")
         {
             var result = unitOfWork.CourseRepository.Get(null, null, "");
             return result;
